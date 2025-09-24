@@ -52,8 +52,6 @@ export function extractAndProcessUtm(): void {
   if (Object.keys(filterEmptyValues(utmFromReferrer)).length > 0) {
     const filteredUtmFromReferrer = filterEmptyValues(utmFromReferrer)
     updateUtmParams(filteredUtmFromReferrer)
-    // URLにもUTMパラメータを追加
-    applyUtmParamsToUrl(filteredUtmFromReferrer)
     console.log('リファラーからUTMパラメータを取得しセッションに保存:', filteredUtmFromReferrer)
     return
   }
@@ -65,8 +63,6 @@ export function extractAndProcessUtm(): void {
   if (Object.keys(filterEmptyValues(storedUtm)).length > 0) {
     const filteredStoredUtm = filterEmptyValues(storedUtm)
     updateUtmParams(filteredStoredUtm)
-    // URLにもUTMパラメータを追加
-    applyUtmParamsToUrl(filteredStoredUtm)
     console.log('セッションストレージからUTMパラメータを復元:', filteredStoredUtm)
     return
   }
@@ -75,35 +71,6 @@ export function extractAndProcessUtm(): void {
   console.log('デフォルトUTMパラメーター適用')
   const defaultUtmParams = getDefaultUtmParams()
   updateUtmParams(defaultUtmParams)
-  // URLにもデフォルトのUTMパラメータを追加
-  applyUtmParamsToUrl(defaultUtmParams)
-}
-
-/**
- * UTMパラメータをURLに適用する
- */
-function applyUtmParamsToUrl(params: UtmParams): void {
-  // 現在のURLを取得
-  const url = new URL(window.location.href)
-  const currentParams = new URLSearchParams(url.search)
-  let hasChanges = false
-
-  // UTMパラメータをURLに追加
-  Object.entries(params).forEach(([key, value]) => {
-    if (value && !currentParams.has(key)) {
-      currentParams.set(key, value)
-      hasChanges = true
-    }
-  })
-
-  // URLが変更された場合のみURLを更新
-  if (hasChanges) {
-    url.search = currentParams.toString()
-
-    // URLを更新（履歴に残さないようにreplaceStateを使用）
-    window.history.replaceState({}, '', url.toString())
-    console.log('URLにUTMパラメータを適用:', url.toString())
-  }
 }
 
 /**
@@ -153,6 +120,33 @@ function handleRouteChange(): void {
   setTimeout(() => {
     extractAndProcessUtm()
   }, 50)
+}
+
+/**
+ * UTMパラメータをURLに適用する
+ */
+export function applyUtmParamsToUrl(params: UtmParams): void {
+  // 現在のURLを取得
+  const url = new URL(window.location.href)
+  const currentParams = new URLSearchParams(url.search)
+  let hasChanges = false
+
+  // UTMパラメータをURLに追加
+  Object.entries(params).forEach(([key, value]) => {
+    if (value && !currentParams.has(key)) {
+      currentParams.set(key, value)
+      hasChanges = true
+    }
+  })
+
+  // URLが変更された場合のみURLを更新
+  if (hasChanges) {
+    url.search = currentParams.toString()
+
+    // URLを更新（履歴に残さないようにreplaceStateを使用）
+    window.history.replaceState({}, '', url.toString())
+    console.log('URLにUTMパラメータを適用:', url.toString())
+  }
 }
 
 /**

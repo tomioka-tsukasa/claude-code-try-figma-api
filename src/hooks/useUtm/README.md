@@ -163,6 +163,21 @@ updateUtmParams({
 })
 ```
 
+### `applyUtmParamsToUrl(params)`
+**用途**: UTMパラメータを現在のURLに手動で適用
+
+```typescript
+import { applyUtmParamsToUrl } from './hooks/useUtm/initUtm'
+
+// 特定のUTMパラメータをURLに追加
+applyUtmParamsToUrl({
+  utm_source: 'newsletter',
+  utm_medium: 'email',
+  utm_campaign: 'weekly'
+})
+// URL例: https://example.com/?utm_source=newsletter&utm_medium=email&utm_campaign=weekly
+```
+
 ### `filterEmptyValues(obj)`
 **用途**: 空の値を除外したオブジェクトを作成
 
