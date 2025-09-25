@@ -203,6 +203,10 @@ mcp-remoteが**HTTP Transport → Stdio Transport変換**を行うことで、Cl
 
 ## トラブルシューティング
 
+### Figmaフォーラム｜Figma MCPが動作しない
+
+[https://forum.figma.com/report-a-problem-6/figma-mcp-not-working-43506/index2.html](https://forum.figma.com/report-a-problem-6/figma-mcp-not-working-43506/index2.html)
+
 ### "Cannot connect to Figma Desktop App"
 **原因**: Figma Desktop App が起動していない
 **解決**: Figma Desktop App を起動し、対象ファイルを開く
