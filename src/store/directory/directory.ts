@@ -4,10 +4,12 @@ export const BASE_ROOT = '/'
 
 export const SLUGS = {
   TOP: 'top',
+  FIGMA_TEST_03: 'figma-test-03',
 } as const
 
 export const DM = {
   TOP: ROOT,
+  FIGMA_TEST_03: '/figma-test-03',
 } as const
 
 export const ROUTES_META = {
@@ -23,5 +25,5 @@ export const ROUTES_META = {
       twitterCard: 'summary_large_image',
       ogImage: '/'
     }
-  },
+  }
 } as const

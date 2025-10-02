@@ -1,0 +1,102 @@
+{
+  "figma_library_metadata": {
+    "document_name": "【Private】Mori",
+    "extracted_at": "2025-01-13",
+    "sections": {
+      "test_section": {
+        "id": "570:37915",
+        "name": "テスト",
+        "frames": [
+          {
+            "id": "570:37916",
+            "name": "test-01",
+            "size": {"width": 1512, "height": 889}
+          },
+          {
+            "id": "627:7824",
+            "name": "test-02",
+            "size": {"width": 1512, "height": 1559}
+          },
+          {
+            "id": "631:7519",
+            "name": "test-03",
+            "size": {"width": 1512, "height": 2605}
+          }
+        ]
+      },
+      "components_section": {
+        "id": "608:6942",
+        "name": "Components",
+        "components": [
+          {
+            "id": "608:6997",
+            "name": "img_title_desc",
+            "variants": ["pattern=default", "pattern=white_bg"]
+          },
+          {
+            "id": "608:8186",
+            "name": "img_caption"
+          },
+          {
+            "id": "627:8204",
+            "name": "button",
+            "variants": ["size=default", "size=large"]
+          },
+          {
+            "id": "627:8310",
+            "name": "button_col"
+          }
+        ]
+      },
+      "icons_section": {
+        "id": "610:7688",
+        "name": "Parts/Icon",
+        "icons": [
+          {
+            "id": "610:7718",
+            "name": "icon/button-arrow"
+          },
+          {
+            "id": "610:7719",
+            "name": "icon/blank"
+          }
+        ]
+      },
+      "button_icons_section": {
+        "id": "627:8167",
+        "name": "Parts/ButtonIcon",
+        "icons": [
+          {
+            "id": "627:8179",
+            "name": "button-icon/arrow"
+          },
+          {
+            "id": "627:8195",
+            "name": "button-icon/blank"
+          }
+        ]
+      },
+      "completed_version": {
+        "id": "583:6443",
+        "name": "完成版",
+        "description": "A-1_広告・出版物 ページ実装例"
+      },
+      "original_design": {
+        "id": "608:7006",
+        "name": "元デザインデータ",
+        "pages": [
+          {
+            "id": "608:7007",
+            "name": "サステナビリティ",
+            "size": {"width": 1512, "height": 3047}
+          },
+          {
+            "id": "608:7105",
+            "name": "A-1_広告・出版物",
+            "size": {"width": 1512, "height": 3323}
+          }
+        ]
+      }
+    }
+  }
+}

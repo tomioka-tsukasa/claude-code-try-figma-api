@@ -1,0 +1,18 @@
+{
+  "design_tokens": {
+    "colors": {
+      "Basic_White": "#ffffff",
+      "Basic_Dark": "#000000",
+      "text_secondary": "#515255"
+    },
+    "typography": {
+      "primary_font": "Inter, Noto_Sans_JP",
+      "secondary_font": "Arial, Noto_Sans_JP"
+    },
+    "spacing": {
+      "border_radius": "3px",
+      "gap_small": "11px",
+      "gap_medium": "20px"
+    }
+  }
+}
