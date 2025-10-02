@@ -1,8 +1,8 @@
 import React from 'react'
 import * as styles from './Button.css'
 
-const iconBlank = '/src/assets/icons/blank.svg'
-const iconArrow = '/src/assets/icons/arrow.svg'
+const iconBlank = '/assets/icons/blank.svg'
+const iconArrow = '/assets/icons/arrow.svg'
 
 function ButtonIconBlank() {
   return (
