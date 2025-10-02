@@ -1,0 +1,121 @@
+{
+  "components": {
+    "img_title_desc": {
+      "id": "608:6996",
+      "variants": [
+        {
+          "id": "608:6996",
+          "properties": {
+            "pattern": "default"
+          },
+          "description": "画像とタイトル・説明文を組み合わせたコンポーネントのデフォルトパターン",
+          "structure": {
+            "image": {
+              "style": "rounded corners",
+              "border": "1px bottom border with opacity"
+            },
+            "content": {
+              "title": {
+                "font": "Inter:Bold, Noto_Sans_JP:Bold",
+                "size": "12px",
+                "color": "#000000"
+              },
+              "description": {
+                "font": "Inter:Regular, Noto_Sans_JP:Regular",
+                "size": "12px",
+                "color": "#515255"
+              }
+            }
+          }
+        },
+        {
+          "id": "608:6998",
+          "properties": {
+            "pattern": "white_bg"
+          },
+          "description": "白背景版の画像とタイトル・説明文コンポーネント"
+        }
+      ]
+    },
+    "img_caption": {
+      "id": "608:8186",
+      "description": "画像とキャプションを組み合わせたコンポーネント",
+      "props": {
+        "caption": {
+          "type": "string",
+          "default": "キャプション"
+        }
+      },
+      "structure": {
+        "image": {
+          "style": "rounded corners",
+          "border": "1px bottom border with opacity"
+        },
+        "caption": {
+          "font": "Inter:Regular, Noto_Sans_JP:Regular",
+          "size": "12px",
+          "color": "#515255"
+        }
+      }
+    },
+    "button": {
+      "id": "608:6949",
+      "variants": [
+        {
+          "id": "608:6949",
+          "properties": {
+            "size": "default"
+          },
+          "description": "デフォルトサイズのボタンコンポーネント",
+          "structure": {
+            "background": "#000000",
+            "padding": "18px 22px 18px 20px",
+            "borderRadius": "3px",
+            "label": {
+              "font": "Arial:Bold, Noto_Sans_JP:Bold",
+              "size": "14px",
+              "color": "#ffffff"
+            },
+            "icon": {
+              "type": "arrow",
+              "position": "right"
+            }
+          }
+        },
+        {
+          "id": "627:8205",
+          "properties": {
+            "size": "large"
+          },
+          "description": "大きめサイズのボタンコンポーネント"
+        }
+      ]
+    },
+    "button_col": {
+      "id": "627:8310",
+      "description": "ボタンのカラム配置用コンポーネント"
+    }
+  },
+  "icons": {
+    "button_arrow": {
+      "id": "610:7718",
+      "type": "svg",
+      "description": "ボタン用矢印アイコン"
+    },
+    "blank": {
+      "id": "610:7719",
+      "type": "svg",
+      "description": "空白アイコン"
+    }
+  },
+  "button_icons": {
+    "arrow": {
+      "id": "627:8179",
+      "description": "ボタン内矢印アイコン"
+    },
+    "blank": {
+      "id": "627:8195",
+      "description": "ボタン内空白アイコン"
+    }
+  }
+}
