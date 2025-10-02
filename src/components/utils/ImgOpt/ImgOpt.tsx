@@ -6,7 +6,7 @@ import { getOptimalImagePath, getSupportedFormats } from './ImgOptUtils'
 const SP_MEDIA_QUERY = 'screen and (max-width: 500px)'
 
 // ImgOpt コンポーネントのプロパティ型定義
-type ImgOptProps = {
+export type ImgOptProps = {
   src: string;           // PC/デフォルト用の画像パス
   srcSp?: string;        // SP用の画像パス
   alt?: string;          // 代替テキスト
@@ -97,7 +97,8 @@ export function ImgOpt({
   // 画像を表示
   return (
     <img
-      src={imageSrc}
+      // src={imageSrc}
+      src={src}
       alt={alt}
       width={width}
       height={height}

@@ -23,18 +23,6 @@ export const imageContainerDefault = style({
   width: '100%',
 })
 
-export const imageDefault = style({
-  position: 'absolute',
-  inset: 0,
-  maxWidth: 'none',
-  objectPosition: '50% 50%',
-  objectFit: 'cover',
-  borderTopLeftRadius: '3px',
-  borderTopRightRadius: '3px',
-  width: '100%',
-  height: '100%',
-})
-
 export const imageBorderDefault = style({
   position: 'absolute',
   border: '0px 0px 1px',
@@ -88,46 +76,17 @@ export const containerWhiteBg = style({
 })
 
 export const imageContainerWhiteBg = style({
-  display: 'inline-grid',
-  gridTemplateColumns: 'max-content',
-  gridTemplateRows: 'max-content',
-  placeItems: 'start',
   position: 'relative',
   width: '100%',
-})
-
-export const imageWrapperWhiteBg = style({
-  gridArea: '1 / 1',
-  height: '180px',
-  marginLeft: 0,
-  marginTop: 0,
-  pointerEvents: 'none',
-  position: 'relative',
-  borderTopLeftRadius: '3px',
-  borderTopRightRadius: '3px',
-  width: '230px',
-})
-
-export const imageWhiteBg = style({
-  position: 'absolute',
-  inset: 0,
-  maxWidth: 'none',
-  objectPosition: '50% 50%',
-  objectFit: 'cover',
-  borderTopLeftRadius: '3px',
-  borderTopRightRadius: '3px',
-  width: '100%',
-  height: '100%',
 })
 
 export const imageBorderWhiteBg = style({
   position: 'absolute',
-  border: '0px 0px 1px',
-  borderColor: 'rgba(0,0,0,0.1)',
-  borderStyle: 'solid',
-  inset: 0,
-  borderTopLeftRadius: '3px',
-  borderTopRightRadius: '3px',
+  borderBottom: '1px solid rgba(0,0,0,0.1)',
+  bottom: 0,
+  left: 0,
+  right: 0,
+  height: '1px',
 })
 
 export const innerWhiteBg = style({
