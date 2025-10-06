@@ -1,0 +1,113 @@
+import { style } from '@vanilla-extract/css'
+import designData from '@/lib/figma-library/design-data.json'
+
+export const container = style({
+  backgroundColor: '#f1f1f1',
+  display: 'flex',
+  flexDirection: 'column',
+  minHeight: '100vh',
+  width: '100%',
+  position: 'relative',
+})
+
+export const contentsWrapper = style({
+  display: 'flex',
+  width: '100%',
+  position: 'relative',
+  zIndex: 1,
+})
+
+export const contents = style({
+  display: 'flex',
+  flexDirection: 'column',
+  gap: '100px',
+  paddingTop: '170px',
+  paddingBottom: '170px',
+  paddingLeft: 0,
+  paddingRight: '200px',
+  width: '100%',
+})
+
+export const section = style({
+  display: 'flex',
+  flexDirection: 'column',
+  gap: '100px',
+  paddingLeft: '100px',
+  width: '100%',
+})
+
+export const sectionBody = style({
+  display: 'flex',
+  gap: '50px',
+  alignItems: 'flex-start',
+  justifyContent: 'flex-end',
+  width: '100%',
+})
+
+export const headlineColumn = style({
+  display: 'flex',
+  flexDirection: 'column',
+  height: '628px',
+  width: '371px',
+  position: 'relative',
+})
+
+export const headlineWrapper = style({
+  position: 'absolute',
+  top: '-120px',
+  left: 0,
+  right: 0,
+  bottom: 0,
+  height: 'calc(100% + 120px)',
+})
+
+export const contentColumn = style({
+  display: 'flex',
+  flexDirection: 'column',
+  gap: '50px',
+  alignItems: 'flex-end',
+  width: '791px',
+})
+
+export const imagesRow = style({
+  display: 'flex',
+  gap: '50px',
+  width: '100%',
+})
+
+export const buttonRow = style({
+  display: 'flex',
+  gap: '50px',
+  alignItems: 'flex-start',
+  justifyContent: 'flex-end',
+  width: '100%',
+})
+
+export const buttonWrapper = style({
+  width: '370px',
+})
+
+export const descriptionText = style({
+  fontFamily: '"A P-OTF Gothic BBB Pr6N", sans-serif',
+  fontSize: '16px',
+  lineHeight: '32px',
+  color: designData.design_tokens.colors.Basic_Dark,
+  width: '100%',
+  margin: 0,
+})
+
+export const radioContentColumn = style({
+  display: 'flex',
+  flexDirection: 'column',
+  gap: '50px',
+  alignItems: 'flex-end',
+  width: '791px',
+})
+
+export const radioHeadlineColumn = style({
+  display: 'flex',
+  flexDirection: 'column',
+  height: '586px',
+  width: '371px',
+  position: 'relative',
+})

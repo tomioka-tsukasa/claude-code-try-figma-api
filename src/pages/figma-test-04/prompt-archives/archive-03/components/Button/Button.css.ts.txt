@@ -1,0 +1,40 @@
+import { style } from '@vanilla-extract/css'
+import designData from '@/lib/figma-library/design-data.json'
+
+export const buttonContainer = style({
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'space-between',
+  backgroundColor: designData.design_tokens.colors.Basic_Dark,
+  color: designData.design_tokens.colors.Basic_White,
+  padding: '18px 22px 18px 20px',
+  borderRadius: '3px',
+  border: 'none',
+  cursor: 'pointer',
+  gap: '20px',
+  width: '100%',
+})
+
+export const buttonLabel = style({
+  fontFamily: '"Arial", "Noto Sans JP", sans-serif',
+  fontWeight: 700,
+  fontSize: '14px',
+  lineHeight: '16px',
+  color: designData.design_tokens.colors.Basic_White,
+  flexGrow: 1,
+  textAlign: 'left',
+})
+
+export const buttonIcon = style({
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  width: '12px',
+  height: '12px',
+  flexShrink: 0,
+})
+
+export const buttonIconArrow = style({
+  width: '7px',
+  height: '12px',
+})

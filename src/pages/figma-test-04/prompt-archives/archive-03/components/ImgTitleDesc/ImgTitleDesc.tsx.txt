@@ -1,0 +1,60 @@
+import React from 'react'
+import ImgOpt from '@/components/utils/ImgOpt/ImgOpt'
+import * as styles from './ImgTitleDesc.css'
+
+interface ImgTitleDescProps {
+  src?: string
+  imageUrl?: string
+  title: string
+  desc?: string
+  description?: string
+  alt?: string
+  iconIsArrow?: boolean
+  iconIsExternal?: boolean
+  pattern?: string
+  'data-name'?: string
+  'data-node-id'?: string
+}
+
+const ImgTitleDesc: React.FC<ImgTitleDescProps> = ({
+  src,
+  imageUrl,
+  title,
+  desc,
+  description,
+  alt = '',
+  'data-name': dataName,
+  'data-node-id': dataNodeId,
+}) => {
+  const imageSrc = src || imageUrl || ''
+  const descText = description || desc || ''
+  return (
+    <div
+      className={styles.container}
+      data-name={dataName}
+      data-node-id={dataNodeId}
+    >
+      <div className={styles.imageContainer}>
+        <ImgOpt
+          src={imageSrc}
+          alt={alt}
+          className={styles.image}
+        />
+      </div>
+      <div className={styles.contentContainer}>
+        <div className={styles.content}>
+          <p className={styles.title}>
+            {title}
+          </p>
+          {descText && (
+            <p className={styles.description}>
+              {descText}
+            </p>
+          )}
+        </div>
+      </div>
+    </div>
+  )
+}
+
+export default ImgTitleDesc

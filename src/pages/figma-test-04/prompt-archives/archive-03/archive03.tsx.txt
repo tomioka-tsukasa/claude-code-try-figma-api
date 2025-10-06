@@ -1,0 +1,115 @@
+import React from 'react'
+import Button from '@/components/ui/Button/Button'
+import ImgCaption from '@/components/ui/ImgCaption/ImgCaption'
+import ImgTitleDesc from '@/components/ui/ImgTitleDesc/ImgTitleDesc'
+import HeadlineMidashi from '@/components/ui/HeadlineMidashi/HeadlineMidashi'
+import * as styles from './FigmaTest04.css'
+
+export default function FigmaTest04() {
+  return (
+    <div className={styles.container} data-name='test-04' data-node-id='702:1402'>
+      <div className={styles.contentsWrapper} data-name='Contents + Index UI' data-node-id='702:1404'>
+        <div className={styles.contents} data-name='Contents' data-node-id='702:1405'>
+
+          <section className={styles.section} data-name='movie' data-node-id='702:1406'>
+            <div className={styles.sectionBody} data-name='Body' data-node-id='702:1409'>
+              <div className={styles.headlineColumn} data-node-id='702:1410'>
+                <div className={styles.headlineWrapper}>
+                  <HeadlineMidashi data-name='Headline_midashi' data-node-id='702:1411'>
+                    ムービー
+                  </HeadlineMidashi>
+                </div>
+              </div>
+
+              <div className={styles.contentColumn} data-name='Text' data-node-id='702:1412'>
+                <div className={styles.imagesRow} data-name='Images' data-node-id='702:1413'>
+                  <ImgCaption
+                    src='/assets/d5eeb7e244431d01789dac8816b8c1bd91caef9b.png'
+                    caption='森ビル ブランドムービー｜DESIGNING TOKYO（2023）'
+                    alt='森ビル ブランドムービー'
+                    data-name='img_caption'
+                    data-node-id='702:1414'
+                  />
+                  <ImgCaption
+                    src='/assets/62376c705d19fc8c69b3b5cb640ca9a93fb2fe94.png'
+                    caption='麻布台ヒルズコンセプトムービー｜都市に生きる（2019）'
+                    alt='麻布台ヒルズコンセプトムービー'
+                    data-name='img_caption'
+                    data-node-id='702:1415'
+                  />
+                </div>
+
+                <div className={styles.imagesRow} data-name='Images' data-node-id='702:1416'>
+                  <ImgCaption
+                    src='/assets/05d412cbc5e2790cd9caf00a4dc24e4b16672eee.png'
+                    caption='「DESIGNING TOKYO」Full Ver.（2019年）'
+                    alt='DESIGNING TOKYO Full Ver.'
+                    data-name='img_caption'
+                    data-node-id='702:1417'
+                  />
+                  <ImgCaption
+                    src='/assets/ecd13fda0d81010e751d69484c9e7fdc3ca42723.png'
+                    caption='麻布台ヒルズコンセプトムービー｜都市に生きる（2019）'
+                    alt='麻布台ヒルズコンセプトムービー 2'
+                    data-name='img_caption'
+                    data-node-id='702:1418'
+                  />
+                </div>
+
+                <div className={styles.buttonRow} data-name='button_col' data-node-id='702:1419'>
+                  <div className={styles.buttonWrapper}>
+                    <Button
+                      label='ムービー 一覧'
+                      data-name='button'
+                      data-node-id='702:1420'
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section className={styles.section} data-name='radio' data-node-id='702:1434'>
+            <div className={styles.sectionBody} data-name='Body' data-node-id='702:1437'>
+              <div className={styles.radioHeadlineColumn} data-node-id='702:1438'>
+                <div className={styles.headlineWrapper}>
+                  <HeadlineMidashi data-name='Headline_midashi' data-node-id='702:1439'>
+                    ラジオ
+                  </HeadlineMidashi>
+                </div>
+              </div>
+
+              <div className={styles.radioContentColumn} data-name='Text' data-node-id='702:1440'>
+                <ImgTitleDesc
+                  src='/assets/363c097f05b1eeb50ba6ed331c82ef1aacf48b0e.png'
+                  title='森ビル提供のラジオ番組　J-WAVE「MORI BUILDING GO NEXT TOKYO」　（月～木曜 13:45～13:55）'
+                  description='東京のホットなイベントや情報をお届けしています。'
+                  alt='J-WAVE ラジオ番組'
+                  data-name='img_title_desc'
+                  data-node-id='702:1441'
+                />
+
+                <p className={styles.descriptionText} data-node-id='702:1442'>
+                  J-WAVEのラジオ番組「MORI BUILDING GO NEXT TOKYO」などで放送中の<br />
+                  森ビルのラジオCMは、さまざまなクリエイターとコラボレーションしています。
+                </p>
+
+                <div className={styles.buttonRow} data-name='button_col' data-node-id='702:1443'>
+                  <div className={styles.buttonWrapper}>
+                    <Button
+                      label='ラジオCM'
+                      showIcon={false}
+                      data-name='button'
+                      data-node-id='702:1444'
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+        </div>
+      </div>
+    </div>
+  )
+}
