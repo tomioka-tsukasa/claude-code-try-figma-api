@@ -1,9 +1,9 @@
 ## 指示した時の状況
 
+- Figmaの `test-04` セクションの実装を依頼
 - 実装済みコンポーネント: `components/ui/Button/`, `components/ui/HeadlineMidashi/`, `components/ui/ImgCaption/`, `components/ui/ImgTitleDesc/`
-- `test-03` セクションの実装を依頼
 
-## プロンプトまとめ
+## プロンプト
 
 ### 実行指示プロンプト
 
