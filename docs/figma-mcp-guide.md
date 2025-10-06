@@ -2,91 +2,83 @@
 
 ## Figma実装の基本手順
 
-### 1. 事前確認（プロジェクト要件把握）
-- `/CLAUDE.md` を読んでプロジェクトの要件を把握
-- 使用する技術やコマンドは `/CLAUDE.md` に従う
-```bash
-# プロジェクト要件を把握
-cat CLAUDE.md
-```
+### 1. 既存リソース確認
 
-### 2. 既存リソース確認
-
-#### 2-1. Figmaライブラリディレクトリ確認
+#### 1-1. Figmaライブラリディレクトリ確認
 ```bash
 ls -la src/lib/figma-library/
 ```
 
-#### 2-2. 既存デザインデータ確認
+#### 1-2. 既存デザインデータ確認
 ```bash
 cat src/lib/figma-library/design-data.json
 cat src/lib/figma-library/components.json
 cat src/lib/figma-library/metadata.json
 ```
 
-#### 2-3. 既存UIコンポーネント確認
+#### 1-3. 既存UIコンポーネント確認
 ```bash
 ls -la src/components/ui/
 ```
 
-### 3. Figmaデザイン取得・分析
+### 2. Figmaデザイン取得・分析
 
-#### 3-1. スクリーンショットで全体把握
+#### 2-1. スクリーンショットで全体把握
 ```bash
 mcp__figma-dev-mode-mcp-server__get_screenshot
 ```
 
-#### 3-2. メタデータでノード構造確認
+#### 2-2. メタデータでノード構造確認
 ```bash
 mcp__figma-dev-mode-mcp-server__get_metadata
 ```
 
-#### 3-3. Code Connect情報確認（失敗しても続行）
+#### 2-3. Code Connect情報確認（失敗しても続行）
 ```bash
 mcp__figma-dev-mode-mcp-server__get_code_connect_map
 ```
 
-### 4. 実装方針決定
+### 3. 実装方針決定
 
-#### 4-1. Figmaノード名と既存コンポーネント名の対応確認
+#### 3-1. Figmaノード名と既存コンポーネント名の対応確認
 ```bash
 # 例: img_caption ノードがある → ImgCaption コンポーネントを探す
 find src/components -name "*[ノード名に対応する名前]*" -type f
 ```
 
-#### 4-2. 新規コンポーネント作成の必要性判断
+#### 3-2. 新規コンポーネント作成の必要性判断
 以下を検討：
 - 既存コンポーネントで対応可能か
 - 新規作成が必要なコンポーネントは何か
 - どこに配置するか（/src/components/ui/ or ページ内）
 
-### 5. コード生成・実装
+### 4. コード生成・実装
 
-#### 5-1. Figmaからコード生成
+#### 4-1. Figmaからコード生成
 ```bash
 # 実装コードを取得（既存コンポーネント確認後）
 mcp__figma-dev-mode-mcp-server__get_code
 ```
 
-#### 5-2. 既存コンポーネントとの整合性確認
+#### 4-2. 既存コンポーネントとの整合性確認
 - 生成されたコンポーネント（Button, Input, Card等）が既存の `/src/components/ui/` にないか確認
 - 既存コンポーネントがある場合は、生成コードから削除し、importで使用
 
-#### 5-3. 新規コンポーネントの分離・配置
+#### 4-3. 新規コンポーネントの分離・配置
 - 再利用性の高いコンポーネントは `/src/components/ui/` に別ファイルとして作成
 - ページ固有のコンポーネントはページディレクトリ内の`components`フォルダに別ファイルとして作成
 - 各コンポーネントに適切な Props インターフェースを定義
 
-#### 5-4. スタイリング実装
+#### 4-4. スタイリング実装
 - Vanilla Extract (.css.ts) でスタイル作成
 - `design-data.json` のデザイントークンを参照
 - 既存パターンに準拠した実装
 
-#### 5-5. 画像アセットの最適化
+#### 4-5. 画像アセットの最適化
 - 生成された画像パスを ImgOpt コンポーネントに置き換え
 - 適切なalt属性の設定
 
-#### 5-6. 検証・調整
+#### 4-6. 検証・調整
 - 実装結果の確認
 - レスポンシブ対応の確認
 - アクセシビリティの確認
