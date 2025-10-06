@@ -1,254 +1,217 @@
 # Figma MCP x Claude 自動実装マニュアル
 
-- `/CLAUDE.md` を読んでプロジェクトの要件を把握
-- 使用する技術やコマンドは `/CLAUDE.md` に従う
-
 ## Figma実装の基本手順
 
-### 1. 実装前の必須把握ステップ
-
+### 1. 事前確認（プロジェクト要件把握）
+- `/CLAUDE.md` を読んでプロジェクトの要件を把握
+- 使用する技術やコマンドは `/CLAUDE.md` に従う
 ```bash
-# 1. プロジェクト要件を把握
+# プロジェクト要件を把握
 cat CLAUDE.md
+```
 
-# 2. Figmaライブラリディレクトリの内容を確認
+### 2. 既存リソース確認
+
+#### 2-1. Figmaライブラリディレクトリ確認
+```bash
 ls -la src/lib/figma-library/
+```
 
-# 3. 既存のデザインデータを確認
+#### 2-2. 既存デザインデータ確認
+```bash
 cat src/lib/figma-library/design-data.json
 cat src/lib/figma-library/components.json
 cat src/lib/figma-library/metadata.json
+```
 
-# 4. 既存UIコンポーネントディレクトリを確認
+#### 2-3. 既存UIコンポーネント確認
+```bash
 ls -la src/components/ui/
+```
 
-# 5. Figmaメタデータ取得後、ノード名と既存コンポーネント名の対応を確認
+### 3. Figmaデザイン取得・分析
+
+#### 3-1. スクリーンショットで全体把握
+```bash
+mcp__figma-dev-mode-mcp-server__get_screenshot
+```
+
+#### 3-2. メタデータでノード構造確認
+```bash
+mcp__figma-dev-mode-mcp-server__get_metadata
+```
+
+#### 3-3. Code Connect情報確認（失敗しても続行）
+```bash
+mcp__figma-dev-mode-mcp-server__get_code_connect_map
+```
+
+### 4. 実装方針決定
+
+#### 4-1. Figmaノード名と既存コンポーネント名の対応確認
+```bash
 # 例: img_caption ノードがある → ImgCaption コンポーネントを探す
 find src/components -name "*[ノード名に対応する名前]*" -type f
 ```
 
-**重要**:
-- まず`CLAUDE.md`でプロジェクトの技術スタックと要件を確認
-- `/src/lib/figma-library/` のデザインデータとコンポーネント情報を把握
-- Figmaのノード名（snake_case）と既存コンポーネント名（PascalCase）の対応関係を確認してから実装開始
-- 既存コンポーネントがある場合は必ずそれを使用する
+#### 4-2. 新規コンポーネント作成の必要性判断
+以下を検討：
+- 既存コンポーネントで対応可能か
+- 新規作成が必要なコンポーネントは何か
+- どこに配置するか（/src/components/ui/ or ページ内）
 
-### 2. デザイン確認
-```bash
-# まずスクリーンショットで全体を把握
-mcp__figma-dev-mode-mcp-server__get_screenshot
-```
+### 5. コード生成・実装
 
-### 3. 構造解析
-```bash
-# メタデータでノード構造を確認
-mcp__figma-dev-mode-mcp-server__get_metadata
-```
-
-### 4. 既存コンポーネント詳細確認
-```bash
-# Code Connect情報があるかチェック
-mcp__figma-dev-mode-mcp-server__get_code_connect_map
-```
-
-### 5. コード生成
+#### 5-1. Figmaからコード生成
 ```bash
 # 実装コードを取得（既存コンポーネント確認後）
 mcp__figma-dev-mode-mcp-server__get_code
 ```
 
+#### 5-2. 既存コンポーネントとの整合性確認
+- 生成されたコンポーネント（Button, Input, Card等）が既存の `/src/components/ui/` にないか確認
+- 既存コンポーネントがある場合は、生成コードから削除し、importで使用
+
+#### 5-3. 新規コンポーネントの分離・配置
+- 再利用性の高いコンポーネントは `/src/components/ui/` に別ファイルとして作成
+- ページ固有のコンポーネントはページディレクトリ内の`components`フォルダに別ファイルとして作成
+- 各コンポーネントに適切な Props インターフェースを定義
+
+#### 5-4. スタイリング実装
+- Vanilla Extract (.css.ts) でスタイル作成
+- `design-data.json` のデザイントークンを参照
+- 既存パターンに準拠した実装
+
+#### 5-5. 画像アセットの最適化
+- 生成された画像パスを ImgOpt コンポーネントに置き換え
+- 適切なalt属性の設定
+
+#### 5-6. 検証・調整
+- 実装結果の確認
+- レスポンシブ対応の確認
+- アクセシビリティの確認
+
 **実行順序の理由:**
-0. **事前確認** → 既存コンポーネントの把握（重複実装防止）
-1. **視覚的理解** → スクリーンショットで全体像把握
-2. **構造理解** → メタデータでノード階層確認
-3. **既存活用** → Code Connectで再利用可能コンポーネント確認
-4. **実装取得** → コード生成で具体的な実装（最後に実行）
+1. **事前確認** → プロジェクト要件の把握
+2. **既存リソース確認** → 重複実装防止、既存パターン把握
+3. **視覚的・構造理解** → デザインとノード構造の把握
+4. **実装方針決定** → 新規作成 vs 既存活用の判断
+5. **段階的実装** → コード生成→整合性確認→分離→スタイリング→検証
 
 ## 実装要件
 
+### HTML構造
 - セマンティックHTML構造で記述
-  - FigmaデザインデータのスクショとMCPで返されたXMLデータを見て、適切なHTML要素を選択
-  - もしノード名に `head` `heading` `見出し` のような見出しの文字が含まれる場合は `<h*>` などの見出しHTML要素を選択
-  - もしノード名に `button` `btn` `ボタン` などのボタンの文字が含まれる場合は `<button>` を選択
-- Reactコンポーネントは interface Props で型定義して実装
-- HTMLに `data-name: [Figmaのノード名]` `data-node-id: [FigmaのノードID]` をdata属性として付与
-- 画像ノードは `/src/components/utils/ImgOpt/ImgOpt.tsx` コンポーネントを使用
+- FigmaデザインデータとMCPのXMLデータから適切なHTML要素を選択
+- ノード名から要素を推測：
+  - `head` `heading` `見出し` → `<h1>` `<h2>` など
+  - `button` `btn` `ボタン` → `<button>`
+  - `nav` `navigation` → `<nav>`
+  - `list` `ul` `ol` → `<ul>` `<ol>`
+
+### React/TypeScript
+- すべてのコンポーネントで `interface Props` による型定義
+- HTMLに `data-name="[Figmaノード名]"` `data-node-id="[FigmaノードID]"` を付与
+- 画像は `/src/components/utils/ImgOpt/ImgOpt.tsx` を使用
 
 ```typescript
-export default function Page() {
+interface ComponentProps {
+  title: string;
+  description?: string;
+}
+
+export default function Component({ title, description }: ComponentProps) {
   return (
-    <div className="sampleImage">
-      <ImgOpt src="/image-path.png" />
+    <div data-name="component" data-node-id="123:456">
+      <h2>{title}</h2>
+      <ImgOpt src="/path/to/image.png" alt={title} />
     </div>
   )
 }
 ```
 
-## スタイリング実装
+### スタイリング
+- Vanilla Extract (.css.ts) でスタイル実装
+- `/src/lib/figma-library/design-data.json` のデザイントークン優先使用
+- `/src/styles/responsive.config.ts` のブレークポイント使用
+- 既存コンポーネントのスタイルパターンに準拠
 
-- スタイルは **Vanilla Extract** (.css.ts) で実装
-- `/src/styles/responsive.config.ts` のブレークポイントを使用
-- `/src/lib/figma-library/design-data.json` のデザイントークンを参照
-- 既存コンポーネントのスタイルパターンを確認してから実装
+## 詳細実装ガイド
 
-### Vanilla Extract重要なルール
+### 既存コンポーネント確認の詳細
+**重要なポイント:**
+- Figmaのノード名（snake_case）と既存コンポーネント名（PascalCase）の対応関係を確認
+- 既存コンポーネントがある場合は必ず再利用
+- 類似機能コンポーネントの拡張可能性を検討
 
-**❌ 禁止されているセレクター:**
+### コンポーネント配置の判断基準
+
+**`/src/components/ui/` に配置する場合:**
+- 複数ページで再利用される可能性が高い
+- 独立した機能を持つUI要素（Button、Input、Card、Modal等）
+- デザインシステムの一部として管理すべき要素
+
+**ページディレクトリの`components`フォルダに配置する場合:**
+- そのページでのみ使用される固有のコンポーネント
+- ページの構造に強く依存する要素
+
+### Vanilla Extract実装ルール
+
+**禁止パターン:**
 ```typescript
-// HTMLタグ名をセレクターにするのはエラーになる
+// HTMLタグセレクターは使用禁止
 export const container = style({
-  // NG: '& p' のような書き方
-  '& p': {
-    color: 'red'
-  }
+  '& p': { color: 'red' } // NG
 })
 ```
 
-**✅ 正しい実装方法:**
+**推奨パターン:**
 ```typescript
-// 各HTML要素にクラス名を付けて管理
+// 個別クラスで管理
 export const container = style({
   display: 'flex',
   flexDirection: 'column'
 })
 
-export const paragraph = style({
+export const text = style({
   color: 'red',
   fontSize: '16px'
 })
 
-// コンポーネントで使用
-function Component() {
-  return (
-    <div className={styles.container}>
-      <p className={styles.paragraph}>テキスト</p>
-    </div>
-  )
-}
-```
-
-### 実装例
-```typescript
-// Page.css.ts
-import { style } from '@vanilla-extract/css'
-
-export const container = style({
-  // スタイル定義
-})
-
-// Page.tsx
-import * as styles from './Page.css'
-```
-
-## Figmaライブラリデータの管理と取得
-
-### ライブラリデータの確認手順
-
-実装開始前に必ず以下を確認:
-
-1. **既存のデザインデータを確認**
-```bash
-# デザイントークン（カラー等）の確認
-cat src/lib/figma-library/design-data.json
-
-# 既存コンポーネント情報の確認
-cat src/lib/figma-library/components.json
-
-# Figmaファイル構造の確認
-cat src/lib/figma-library/metadata.json
-```
-
-2. **デザイントークンの活用**
-- `design-data.json` の `design_tokens.colors` に定義されたカラーを優先使用
-- 例: `Basic_Dark: "#000000"`, `Basic_White: "#ffffff"` など
-
-### デザインデータが不足している場合の対処
-
-**design-data.json が存在しない、またはカラー情報が不足している場合:**
-
-1. Figmaでライブラリカラーを一覧化したセクションを確認
-2. ユーザーにそのセクションを選択してもらう
-3. `mcp__figma-dev-mode-mcp-server__get_variable_defs` を実行
-4. 取得した情報を `/src/lib/figma-library/design-data.json` の `design_tokens.colors` に格納
-
-**components.json が存在しない場合:**
-- コンポーネント情報を手動で整理し、同ファイルに格納
-- 各コンポーネントのID、バリアント、構造情報を記録
-
-### ライブラリデータの活用方法
-
-**実装時の参照パターン:**
-
-```typescript
-// design-data.json のカラーを参照
+// デザイントークン参照
 import designData from '@/lib/figma-library/design-data.json'
 
-export const containerStyle = style({
-  backgroundColor: designData.design_tokens.colors.Basic_White,
-  color: designData.design_tokens.colors.Basic_Dark,
-  border: `1px solid ${designData.design_tokens.colors.Basic_Medium}`
+export const button = style({
+  backgroundColor: designData.design_tokens.colors.Basic_Dark,
+  color: designData.design_tokens.colors.Basic_White
 })
 ```
 
-**コンポーネント情報の活用:**
-- `components.json` で既存コンポーネントのID、バリアント、構造を確認
-- 同じコンポーネントを再実装せず、既存のものを活用
+### Figmaライブラリデータ活用
 
-### get_variable_defs について
+**デザイントークン参照パターン:**
+```typescript
+import designData from '@/lib/figma-library/design-data.json'
 
-- 実際に使用されている変数のみを返す仕様
-- ライブラリにカラー定義しているだけでは取得できない
-- Figmaで何も選択していないと「使用されている変数がない」というレスポンスになる
+// カラー参照
+backgroundColor: designData.design_tokens.colors.Basic_White
+border: `1px solid ${designData.design_tokens.colors.Basic_Medium}`
+```
 
-## コンポーネント実装について
+**データ不足時の対処:**
+- `design-data.json` にカラー情報がない場合：
+  1. Figmaでライブラリカラー一覧セクションを選択
+  2. `mcp__figma-dev-mode-mcp-server__get_variable_defs` 実行
+  3. 取得データを `design_tokens.colors` に追加
 
-### 新規コンポーネント作成の判断基準
+### エラーハンドリング
 
-**以下の場合はコンポーネントとして実装**:
-1. Figmaでインスタンスノード（コンポーネントのインスタンス）として定義されている
-2. 同じデザインパターンが複数箇所で使用されている
-3. 独立した機能を持つUI要素（Button、Input、Card等）
-4. 再利用性が高いと判断される要素
+**`get_variable_defs` エラー対処:**
+- 「使用されている変数がない」→ ライブラリ変数を使用しているコンポーネントを選択
 
-**以下の場合は非コンポーネントとして実装**:
-1. テキストのみの要素
-2. 単純なdivコンテナ
-3. 一回限りの使用で再利用性が低い要素
-4. レイアウト目的のみの要素
+**`get_code` エラー対処:**
+- 生成失敗 → ノードを小さな単位に分けて再実行
+- ノードID無効 → `get_metadata` で有効ID確認
 
-### コンポーネント粒度の指針
-
-- **小さすぎる粒度**: 単一のテキストや画像要素
-- **適切な粒度**: Button、Card、InputField、NavItem等
-- **大きすぎる粒度**: ページ全体やセクション全体
-
-### 既存コンポーネント確認手順
-
-1. `/src/components/ui/` ディレクトリを確認
-2. 類似機能のコンポーネントが存在するかチェック
-3. 既存コンポーネントで拡張可能かを判断
-4. 新規作成が必要な場合のみ実装
-
-## エラーハンドリング
-
-### get_variable_defsのエラー対処
-
-**問題**: 「使用されている変数がない」レスポンス
-**原因**:
-- Figmaで何も選択していない
-- 選択したノードでライブラリ変数が使用されていない
-
-**対処法**:
-- Figmaでライブラリ変数を使用しているコンポーネントを選択
-- ライブラリカラー一覧ページ/セクションを選択
-- 変数が実際に適用されているデザインエリアを選択
-
-### その他のMCPエラー対処
-
-**get_code実行時にコード生成が失敗する場合**:
-- ノードが複雑すぎる → 小さな単位に分けて実行
-- ノードIDが無効 → get_metadataで有効なIDを確認
-
-**get_screenshot実行時に画像が取得できない場合**:
-- ノードが非表示になっている → Figmaで表示状態を確認
-- ノードサイズが大きすぎる → 適切なサイズのノードを選択
+**`get_screenshot` エラー対処:**
+- 画像取得失敗 → ノードの表示状態・サイズを確認
