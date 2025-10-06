@@ -14,14 +14,6 @@ export const container = style({
   top: 0,
 })
 
-export const text = style({
-  fontFamily: '\'A P-OTF Midashi Go MB31 Pr6N:B\', sans-serif',
-  lineHeight: '0',
-  fontStyle: 'normal',
-  fontSize: '21px',
-  width: '354px',
-})
-
 export const textBlack = style({
   color: '#000000',
 })
@@ -30,7 +22,11 @@ export const textGray = style({
   color: '#515252',
 })
 
-export const textP = style({
+export const text = style({
+  width: '354px',
+  fontFamily: '\'A P-OTF Midashi Go MB31 Pr6N:B\', sans-serif',
+  fontStyle: 'normal',
+  fontSize: '21px',
   lineHeight: '1.5',
   margin: 0,
 })

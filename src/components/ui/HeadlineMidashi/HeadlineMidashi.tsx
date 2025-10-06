@@ -12,9 +12,9 @@ function HeadlineMidashi({ children, color = 'black', className }: HeadlineMidas
 
   return (
     <div className={`${styles.container} ${className || ''}`} data-name='Headline_midashi'>
-      <div className={`${styles.text} ${colorClass}`}>
-        <p className={styles.textP}>{children}</p>
-      </div>
+      <h2 className={`${styles.text} ${colorClass}`}>
+        {children}
+      </h2>
     </div>
   )
 }

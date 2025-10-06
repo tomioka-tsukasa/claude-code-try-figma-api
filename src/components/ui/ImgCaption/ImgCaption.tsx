@@ -12,21 +12,21 @@ interface ImgCaptionProps {
 
 function ImgCaption({ src, caption, width = '370px', height = '238px', className }: ImgCaptionProps) {
   return (
-    <div className={`${styles.container} ${className || ''}`} style={{ width, height }} data-name='img_caption'>
+    <figure className={`${styles.container} ${className || ''}`} style={{ width, height }} data-name='img_caption'>
       <div className={styles.imageContainer} data-name='image'>
-        <ImgOpt alt='' className={styles.image} src={src} />
+        <ImgOpt alt={caption} className={styles.image} src={src} />
         <div aria-hidden='true' className={styles.imageBorder} />
       </div>
       <div className={styles.inner} data-name='inner'>
         <div className={styles.innerContent}>
           <div className={styles.content} data-name='content'>
-            <div className={styles.captionText}>
-              <p className={styles.captionP}>{caption}</p>
-            </div>
+            <figcaption className={styles.captionText}>
+              <span className={styles.captionP}>{caption}</span>
+            </figcaption>
           </div>
         </div>
       </div>
-    </div>
+    </figure>
   )
 }
 
