@@ -1,64 +1,141 @@
 import { style } from '@vanilla-extract/css'
-import designData from '../../../lib/figma-library/design-data.json'
 
-export const imgTitleDescStyles = style({
+// Default pattern styles
+export const containerDefault = style({
   display: 'flex',
   flexDirection: 'column',
   gap: '11px',
-  height: '370px',
-  width: '791px',
-  borderRadius: '3px',
-})
-
-export const imageStyles = style({
-  flex: 1,
-  borderBottom: '1px solid rgba(0, 0, 0, 0.1)',
-  borderRadius: '3px 3px 0 0',
-  overflow: 'hidden',
+  alignItems: 'flex-start',
   position: 'relative',
-
-  selectors: {
-    '& img': {
-      position: 'absolute',
-      inset: 0,
-      width: '100%',
-      height: '100%',
-      objectFit: 'cover',
-      borderRadius: '3px 3px 0 0',
-    }
-  }
+  borderRadius: '3px',
+  width: '100%',
+  height: '100%',
 })
 
-export const innerStyles = style({
+export const imageContainerDefault = style({
+  flexGrow: 1,
+  minHeight: '1px',
+  minWidth: '1px',
+  pointerEvents: 'none',
+  position: 'relative',
+  borderTopLeftRadius: '3px',
+  borderTopRightRadius: '3px',
+  width: '100%',
+})
+
+export const imageBorderDefault = style({
+  position: 'absolute',
+  border: '0px 0px 1px',
+  borderColor: 'rgba(0,0,0,0.1)',
+  borderStyle: 'solid',
+  inset: 0,
+  borderTopLeftRadius: '3px',
+  borderTopRightRadius: '3px',
+})
+
+export const innerDefault = style({
   display: 'flex',
   gap: '20px',
   alignItems: 'center',
+  position: 'relative',
   width: '100%',
 })
 
-export const contentStyles = style({
+export const innerWrapperDefault = style({
+  flexGrow: 1,
+  display: 'flex',
+  flexDirection: 'row',
+  alignItems: 'center',
+  alignSelf: 'stretch',
+})
+
+export const contentDefault = style({
+  flexGrow: 1,
   display: 'flex',
   flexDirection: 'column',
   gap: '2px',
-  flex: 1,
   height: '100%',
-  overflow: 'hidden',
+  alignItems: 'flex-start',
+  minHeight: '1px',
+  minWidth: '1px',
+  overflow: 'clip',
+  position: 'relative',
   fontSize: '12px',
+})
+
+// White background pattern styles
+export const containerWhiteBg = style({
+  backgroundColor: 'white',
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'flex-start',
+  position: 'relative',
+  borderRadius: '3px',
+  width: '100%',
+  height: '100%',
+})
+
+export const imageContainerWhiteBg = style({
+  position: 'relative',
+  width: '100%',
+})
+
+export const imageBorderWhiteBg = style({
+  position: 'absolute',
+  borderBottom: '1px solid rgba(0,0,0,0.1)',
+  bottom: 0,
+  left: 0,
+  right: 0,
+  height: '1px',
+})
+
+export const innerWhiteBg = style({
+  boxSizing: 'border-box',
+  display: 'flex',
+  gap: '20px',
+  alignItems: 'center',
+  padding: '20px',
+  position: 'relative',
+  width: '100%',
+  fontSize: '12px',
+})
+
+export const contentWhiteBg = style({
+  flexGrow: 1,
+  display: 'flex',
+  flexDirection: 'column',
+  gap: '2px',
+  alignItems: 'flex-start',
+  minHeight: '1px',
+  minWidth: '1px',
+  overflow: 'clip',
+  position: 'relative',
+})
+
+// Common text styles
+export const titleText = style({
+  fontFamily: 'Inter, Noto Sans JP, sans-serif',
+  fontWeight: 700,
+  position: 'relative',
+  color: 'black',
+  width: '100%',
   lineHeight: '19px',
 })
 
-export const titleStyles = style({
-  fontFamily: 'Inter, "Noto Sans JP", sans-serif',
-  fontWeight: 'bold',
-  color: designData.design_tokens.colors.Basic_Dark,
-  margin: 0,
+export const descText = style({
+  fontFamily: 'Inter, Noto Sans JP, sans-serif',
+  fontWeight: 400,
+  position: 'relative',
+  color: '#515255',
   width: '100%',
+  lineHeight: '19px',
 })
 
-export const descStyles = style({
-  fontFamily: 'Inter, "Noto Sans JP", sans-serif',
-  fontWeight: 'normal',
-  color: designData.design_tokens.colors.Basic_Medium,
-  margin: 0,
-  width: '100%',
+export const iconContainer = style({
+  fontFamily: 'Font Awesome 6 Free, sans-serif',
+  position: 'relative',
+  color: 'black',
+  textAlign: 'center',
+  whiteSpace: 'nowrap',
+  lineHeight: '16px',
 })

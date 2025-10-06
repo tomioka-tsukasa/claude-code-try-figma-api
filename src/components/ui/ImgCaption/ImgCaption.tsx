@@ -1,35 +1,33 @@
 import React from 'react'
-import ImgOpt from '../../utils/ImgOpt/ImgOpt'
-import { imgCaptionStyles, imageStyles, innerStyles, contentStyles, captionStyles } from './ImgCaption.css'
+import * as styles from './ImgCaption.css'
+import ImgOpt from '@/components/utils/ImgOpt/ImgOpt'
 
-export interface ImgCaptionProps {
-  src: string;
-  alt: string;
-  caption: string;
-  className?: string;
+interface ImgCaptionProps {
+  src: string
+  caption: string
+  width?: string
+  height?: string
+  className?: string
 }
 
-export default function ImgCaption({
-  src,
-  alt,
-  caption,
-  className = ''
-}: ImgCaptionProps) {
+function ImgCaption({ src, caption, width = '370px', height = '238px', className }: ImgCaptionProps) {
   return (
-    <div className={`${imgCaptionStyles} ${className}`} data-name='img_caption'>
-      <div className={imageStyles} data-name='image'>
-        <ImgOpt
-          src={src}
-          alt={alt}
-        />
+    <div className={`${styles.container} ${className || ''}`} style={{ width, height }} data-name='img_caption'>
+      <div className={styles.imageContainer} data-name='image'>
+        <ImgOpt alt='' className={styles.image} src={src} />
+        <div aria-hidden='true' className={styles.imageBorder} />
       </div>
-      <div className={innerStyles} data-name='inner'>
-        <div className={contentStyles} data-name='content'>
-          <p className={captionStyles}>
-            {caption}
-          </p>
+      <div className={styles.inner} data-name='inner'>
+        <div className={styles.innerContent}>
+          <div className={styles.content} data-name='content'>
+            <div className={styles.captionText}>
+              <p className={styles.captionP}>{caption}</p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   )
 }
+
+export default ImgCaption

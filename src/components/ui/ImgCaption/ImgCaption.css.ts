@@ -1,55 +1,84 @@
 import { style } from '@vanilla-extract/css'
-import designData from '../../../lib/figma-library/design-data.json'
 
-export const imgCaptionStyles = style({
+export const container = style({
   display: 'flex',
   flexDirection: 'column',
+  alignItems: 'flex-start',
   gap: '11px',
-  height: '238px',
-  width: '370px',
   borderRadius: '3px',
 })
 
-export const imageStyles = style({
-  flex: 1,
-  borderBottom: '1px solid rgba(0, 0, 0, 0.1)',
-  borderRadius: '3px 3px 0 0',
-  overflow: 'hidden',
+export const imageContainer = style({
+  flex: '1 1 0%',
+  minHeight: '1px',
+  minWidth: '1px',
+  width: '100%',
   position: 'relative',
-
-  selectors: {
-    '& img': {
-      position: 'absolute',
-      inset: 0,
-      width: '100%',
-      height: '100%',
-      objectFit: 'cover',
-      borderRadius: '3px 3px 0 0',
-    }
-  }
+  borderTopLeftRadius: '3px',
+  borderTopRightRadius: '3px',
+  pointerEvents: 'none',
 })
 
-export const innerStyles = style({
+export const image = style({
+  position: 'absolute',
+  inset: 0,
+  maxWidth: 'none',
+  objectPosition: '50% 50%',
+  objectFit: 'cover',
+  borderTopLeftRadius: '3px',
+  borderTopRightRadius: '3px',
+  width: '100%',
+  height: '100%',
+})
+
+export const imageBorder = style({
+  position: 'absolute',
+  inset: 0,
+  border: '0px 0px 1px',
+  borderColor: 'rgba(0,0,0,0.1)',
+  borderStyle: 'solid',
+  borderTopLeftRadius: '3px',
+  borderTopRightRadius: '3px',
+})
+
+export const inner = style({
   display: 'flex',
-  gap: '20px',
   alignItems: 'center',
+  gap: '20px',
   width: '100%',
 })
 
-export const contentStyles = style({
+export const innerContent = style({
+  flex: '1 1 0%',
+  display: 'flex',
+  flexDirection: 'row',
+  alignItems: 'center',
+  alignSelf: 'stretch',
+})
+
+export const content = style({
+  flex: '1 1 0%',
   display: 'flex',
   flexDirection: 'column',
+  alignItems: 'flex-start',
   gap: '2px',
-  flex: 1,
   height: '100%',
+  minHeight: '1px',
+  minWidth: '1px',
   overflow: 'hidden',
 })
 
-export const captionStyles = style({
-  fontFamily: 'Inter, "Noto Sans JP", sans-serif',
+export const captionText = style({
+  fontFamily: '\'Inter:Regular\', \'Noto Sans JP:Regular\', sans-serif',
+  fontWeight: 'normal',
+  lineHeight: '0',
+  fontStyle: 'normal',
   fontSize: '12px',
-  lineHeight: '19px',
-  color: designData.design_tokens.colors.Basic_Medium,
-  margin: 0,
+  color: '#515255',
   width: '100%',
+})
+
+export const captionP = style({
+  lineHeight: '19px',
+  margin: 0,
 })

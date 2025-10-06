@@ -1,18 +1,22 @@
 import React from 'react'
-import { headlineStyles } from './HeadlineMidashi.css'
+import * as styles from './HeadlineMidashi.css'
 
-export interface HeadlineMidashiProps {
-  children: React.ReactNode;
-  className?: string;
+interface HeadlineMidashiProps {
+  children: React.ReactNode
+  color?: 'black' | 'gray'
+  className?: string
 }
 
-export default function HeadlineMidashi({
-  children,
-  className = ''
-}: HeadlineMidashiProps) {
+function HeadlineMidashi({ children, color = 'black', className }: HeadlineMidashiProps) {
+  const colorClass = color === 'black' ? styles.textBlack : styles.textGray
+
   return (
-    <p className={`${headlineStyles} ${className}`} data-name='Headline_midashi'>
-      {children}
-    </p>
+    <div className={`${styles.container} ${className || ''}`} data-name='Headline_midashi'>
+      <div className={`${styles.text} ${colorClass}`}>
+        <p className={styles.textP}>{children}</p>
+      </div>
+    </div>
   )
 }
+
+export default HeadlineMidashi
