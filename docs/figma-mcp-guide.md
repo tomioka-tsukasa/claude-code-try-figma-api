@@ -183,18 +183,20 @@ export const button = style({
 
 **デザイントークン参照パターン:**
 ```typescript
-import designData from '@/lib/figma-library/design-data.json'
+import { colors } from '@/styles/colors'
 
 // カラー参照
-backgroundColor: designData.design_tokens.colors.Basic_White
-border: `1px solid ${designData.design_tokens.colors.Basic_Medium}`
+backgroundColor: colors.basic.white
+border: `1px solid ${colors.basic.medium}`
+color: colors.green.medium
 ```
 
 **データ不足時の対処:**
-- `design-data.json` にカラー情報がない場合：
+- `colors.ts` にカラー情報がない場合：
   1. Figmaでライブラリカラー一覧セクションを選択
   2. `mcp__figma-dev-mode-mcp-server__get_variable_defs` 実行
-  3. 取得データを `design_tokens.colors` に追加
+  3. 取得データを `'@/lib/figma-library/design-data.json'` の `design_tokens.colors` に追加
+  4. さらに適切な命名規則で `colors.ts` に追加
 
 ### エラーハンドリング
 
