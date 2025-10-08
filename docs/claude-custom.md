@@ -1,6 +1,9 @@
 ## Figma連携
 
-Figma連携については @docs/figma-mcp-guide.md を参照して把握
+Figma連携については以下を参照して把握
+- 全フェーズ共通: @docs/guide/figma-common-guide.md
+- コンポーネント実装: @docs/guide/figma-component-guide.md
+- ページ実装: @docs/guide/figma-page-guide.md
 
 ## 留意事項
 
