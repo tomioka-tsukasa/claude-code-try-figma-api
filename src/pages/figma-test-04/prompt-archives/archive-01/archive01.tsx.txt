@@ -1,9 +1,9 @@
 import React from 'react'
 import * as styles from './archive01.css'
-import HeadlineMidashi from '@/components/ui/HeadlineMidashi/HeadlineMidashi'
-import ImgCaption from '@/components/ui/ImgCaption/ImgCaption'
-import ImgTitleDesc from '@/components/ui/ImgTitleDesc/ImgTitleDesc'
-import Button from '@/components/ui/Button/Button'
+import HeadlineMidashi from '@/components/mori-corp/HeadlineMidashi/HeadlineMidashi'
+import ImgCaption from '@/components/mori-corp/ImgCaption/ImgCaption'
+import ImgTitleDesc from '@/components/mori-corp/ImgTitleDesc/ImgTitleDesc'
+import Button from '@/components/mori-corp/Button/Button'
 
 export default function FigmaTest03() {
   return (

@@ -1,8 +1,8 @@
 import React from 'react'
-import Button, { ButtonIconBlank } from '@/components/ui/Button/Button'
-import ImgCaption from '@/components/ui/ImgCaption/ImgCaption'
-import HeadlineMidashi from '@/components/ui/HeadlineMidashi/HeadlineMidashi'
-import ImgTitleDesc from '@/components/ui/ImgTitleDesc/ImgTitleDesc'
+import Button, { ButtonIconBlank } from '@/components/mori-corp/Button/Button'
+import ImgCaption from '@/components/mori-corp/ImgCaption/ImgCaption'
+import HeadlineMidashi from '@/components/mori-corp/HeadlineMidashi/HeadlineMidashi'
+import ImgTitleDesc from '@/components/mori-corp/ImgTitleDesc/ImgTitleDesc'
 import * as styles from './FigmaTest03.css'
 
 const img2 = '/assets/images/figma-test-03/d5eeb7e244431d01789dac8816b8c1bd91caef9b.png'

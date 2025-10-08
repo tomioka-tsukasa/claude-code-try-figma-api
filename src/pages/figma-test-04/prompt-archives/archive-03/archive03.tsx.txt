@@ -1,8 +1,8 @@
 import React from 'react'
-import Button from '@/components/ui/Button/Button'
-import ImgCaption from '@/components/ui/ImgCaption/ImgCaption'
-import ImgTitleDesc from '@/components/ui/ImgTitleDesc/ImgTitleDesc'
-import HeadlineMidashi from '@/components/ui/HeadlineMidashi/HeadlineMidashi'
+import Button from '@/components/mori-corp/Button/Button'
+import ImgCaption from '@/components/mori-corp/ImgCaption/ImgCaption'
+import ImgTitleDesc from '@/components/mori-corp/ImgTitleDesc/ImgTitleDesc'
+import HeadlineMidashi from '@/components/mori-corp/HeadlineMidashi/HeadlineMidashi'
 import * as styles from './FigmaTest04.css'
 
 export default function FigmaTest04() {

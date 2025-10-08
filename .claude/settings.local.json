@@ -8,7 +8,8 @@
       "Bash(mkdir:*)",
       "WebFetch(domain:note.com)",
       "WebFetch(domain:qiita.com)",
-      "WebFetch(domain:www.figma.com)"
+      "WebFetch(domain:www.figma.com)",
+      "Bash(mv:*)"
     ],
     "deny": [],
     "ask": []

@@ -1,8 +1,8 @@
 import React from 'react'
-import { Button } from '../../components/ui/Button'
-import { ImgCaption } from '../../components/ui/ImgCaption'
-import { HeadlineMidashi } from '../../components/ui/HeadlineMidashi'
-import { ImgTitleDesc } from '../../components/ui/ImgTitleDesc'
+import { Button } from '../../components/mori-corp/Button'
+import { ImgCaption } from '../../components/mori-corp/ImgCaption'
+import { HeadlineMidashi } from '../../components/mori-corp/HeadlineMidashi'
+import { ImgTitleDesc } from '../../components/mori-corp/ImgTitleDesc'
 import { containerStyles, sectionStyles, bodyStyles, frameStyles, textStyles, imagesStyles, buttonColStyles, bodyDescStyles } from './FigmaTest04.css'
 
 const img2 = '/src/assets/d5eeb7e244431d01789dac8816b8c1bd91caef9b.png'

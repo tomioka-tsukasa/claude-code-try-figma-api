@@ -1,4 +1,4 @@
-import ImgTitleDesc from '../../components/ui/ImgTitleDesc/ImgTitleDesc'
+import ImgTitleDesc from '../../components/mori-corp/ImgTitleDesc/ImgTitleDesc'
 import * as styles from './FigmaTest02.css'
 
 const imgImage = 'http://localhost:3845/assets/08858ea7d4d5e661c7bd2e77864e81e16663ec55.png'
