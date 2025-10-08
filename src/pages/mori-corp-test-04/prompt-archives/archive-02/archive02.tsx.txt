@@ -3,7 +3,7 @@ import { Button } from '../../components/mori-corp/Button'
 import { ImgCaption } from '../../components/mori-corp/ImgCaption'
 import { HeadlineMidashi } from '../../components/mori-corp/HeadlineMidashi'
 import { ImgTitleDesc } from '../../components/mori-corp/ImgTitleDesc'
-import { containerStyles, sectionStyles, bodyStyles, frameStyles, textStyles, imagesStyles, buttonColStyles, bodyDescStyles } from './FigmaTest04.css'
+import { containerStyles, sectionStyles, bodyStyles, frameStyles, textStyles, imagesStyles, buttonColStyles, bodyDescStyles } from './MoriCorpTest04.css'
 
 const img2 = '/src/assets/d5eeb7e244431d01789dac8816b8c1bd91caef9b.png'
 const img3 = '/src/assets/62376c705d19fc8c69b3b5cb640ca9a93fb2fe94.png'
@@ -11,7 +11,7 @@ const img4 = '/src/assets/05d412cbc5e2790cd9caf00a4dc24e4b16672eee.png'
 const img5 = '/src/assets/ecd13fda0d81010e751d69484c9e7fdc3ca42723.png'
 const img6 = '/src/assets/363c097f05b1eeb50ba6ed331c82ef1aacf48b0e.png'
 
-export default function FigmaTest04() {
+export default function MoriCorpTest04() {
   return (
     <div className={containerStyles} data-name='test-04' data-node-id='702:1402'>
       <div className={sectionStyles} data-name='Contents' data-node-id='702:1405'>

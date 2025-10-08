@@ -3,9 +3,9 @@ import Button from '@/components/mori-corp/Button/Button'
 import ImgCaption from '@/components/mori-corp/ImgCaption/ImgCaption'
 import ImgTitleDesc from '@/components/mori-corp/ImgTitleDesc/ImgTitleDesc'
 import HeadlineMidashi from '@/components/mori-corp/HeadlineMidashi/HeadlineMidashi'
-import * as styles from './FigmaTest04.css'
+import * as styles from './MoriCorpTest04.css'
 
-export default function FigmaTest04() {
+export default function MoriCorpTest04() {
   return (
     <div className={styles.container} data-name='test-04' data-node-id='702:1402'>
       <div className={styles.contentsWrapper} data-name='Contents + Index UI' data-node-id='702:1404'>

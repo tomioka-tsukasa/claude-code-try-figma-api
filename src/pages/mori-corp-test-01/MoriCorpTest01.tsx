@@ -1,11 +1,11 @@
 // import ImgTitleDesc from '../../components/mori-corp/ImgTitleDesc/ImgTitleDesc'
-import * as styles from './FigmaTest01.css'
+import * as styles from './MoriCorpTest01.css'
 
 const img = 'http://localhost:3845/assets/ad89cca48a4f5ea415d85c91d56e54b9de58d4b3.png'
 const img1 = 'http://localhost:3845/assets/40aa15a7e813bc19c0db61cfda5fe1ff05332cb6.svg'
 // const img2 = 'http://localhost:3845/assets/33065a1e70a02517793cc55f68c49578d4c48d39.png'
 
-const FigmaTest01: React.FC = () => {
+const MoriCorpTest01: React.FC = () => {
   return <>
     {/* <div
       style={{
@@ -65,4 +65,4 @@ const FigmaTest01: React.FC = () => {
   </>
 }
 
-export default FigmaTest01
+export default MoriCorpTest01

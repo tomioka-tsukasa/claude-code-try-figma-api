@@ -5,7 +5,7 @@ import ImgCaption from '@/components/mori-corp/ImgCaption/ImgCaption'
 import ImgTitleDesc from '@/components/mori-corp/ImgTitleDesc/ImgTitleDesc'
 import Button from '@/components/mori-corp/Button/Button'
 
-export default function FigmaTest03() {
+export default function MoriCorpTest03() {
   return (
     <div className={styles.container} data-name='test-03' data-node-id='631:7519'>
       <div className={styles.overlay} data-name='□' data-node-id='631:7520'>

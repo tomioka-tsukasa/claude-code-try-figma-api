@@ -1,5 +1,5 @@
 import ImgTitleDesc from '../../components/mori-corp/ImgTitleDesc/ImgTitleDesc'
-import * as styles from './FigmaTest02.css'
+import * as styles from './MoriCorpTest02.css'
 
 const imgImage = 'http://localhost:3845/assets/08858ea7d4d5e661c7bd2e77864e81e16663ec55.png'
 const img = 'http://localhost:3845/assets/a4400242ed2ba42db482e0ec1b26f28af181f1f6.png'
@@ -10,7 +10,7 @@ const img6 = 'http://localhost:3845/assets/f2c42036ff8b3fccc65a6f5c9177e3deec4e4
 const img7 = 'http://localhost:3845/assets/758526123e5ae8b85a9084cf0958a767f6c6d07a.png'
 const img3 = 'http://localhost:3845/assets/40aa15a7e813bc19c0db61cfda5fe1ff05332cb6.svg'
 
-const FigmaTest02: React.FC = () => {
+const MoriCorpTest02: React.FC = () => {
   return (
     <div className={styles.container} data-name='Test-02' data-node-id='610:7754'>
       <div className={styles.backgroundBorder} data-name='□' data-node-id='610:7755' />
@@ -163,4 +163,4 @@ const FigmaTest02: React.FC = () => {
   )
 }
 
-export default FigmaTest02
+export default MoriCorpTest02
