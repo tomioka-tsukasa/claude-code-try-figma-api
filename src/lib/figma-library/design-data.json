@@ -1,0 +1,10 @@
+{
+  "design_tokens": {
+    "colors": {
+      "Basic_Dark": "#000000",
+      "Basic_Medium": "#515255",
+      "Basic_White": "#ffffff",
+      "Green_Medium": "#00875f"
+    }
+  }
+}
