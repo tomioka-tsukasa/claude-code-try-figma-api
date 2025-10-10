@@ -7,6 +7,7 @@ import MoriCorpTest01 from '@/pages/mori-corp-test-01/MoriCorpTest01'
 // import MoriCorpTest03 from '@/pages/mori-corp-test-03/MoriCorpTest03'
 import MoriCorpTest04 from '@/pages/mori-corp-test-04/MoriCorpTest04'
 import MoriCorpTest05 from '@/pages/mori-corp-test-05/MoriCorpTest05'
+import FigmaComponents from '@/pages/figma-components/FigmaComponents'
 
 export const AppRoutes = () => {
   return <>
@@ -19,6 +20,7 @@ export const AppRoutes = () => {
           {/* <Route path={DM.MORI_CORP_TEST_03} element={<MoriCorpTest03 />} /> */}
           <Route path={DM.MORI_CORP_TEST_04} element={<MoriCorpTest04 />} />
           <Route path={DM.MORI_CORP_TEST_05} element={<MoriCorpTest05 />} />
+          <Route path={DM.FIGMA_COMPONENTS} element={<FigmaComponents />} />
         </Route>
       </Routes>
     </BrowserRouter>
