@@ -30,17 +30,12 @@ ls -la DIR_PAGE_DIRECTORY
 
 ## ページ実装設計
 
-### 1. ページ全体の構造設計
-- Figmaデザインから全体のレイアウト構造を把握
-- セクション分割の検討
-- コンポーネントの配置計画
-
-### 2. 使用コンポーネントの決定
+### 1. 使用コンポーネントの決定
 - 既存の DIR_COMMON_COMPONENTS コンポーネントで対応可能な部分
 - ページ固有で新規作成が必要な部分
 - 複数コンポーネントの組み合わせが必要な部分
 
-### 3. DIR_PAGE_COMPONENTS フォルダに配置する場合
+### 2. DIR_PAGE_COMPONENTS フォルダに配置する場合
 - そのページでのみ使用される固有のコンポーネント
 - ページの構造に強く依存する要素
 - セクション単位の大きなコンポーネント
@@ -103,74 +98,3 @@ export const ROUTES_META = {
   }
 } as const
 ```
-
-## ページレベルの状態管理
-
-### 状態管理の判断基準
-- **ローカル状態**: ページ内のみで使用される状態
-- **グローバル状態**: 複数ページで共有される状態
-
-### ローカル状態管理
-```typescript
-import { useState, useEffect } from 'react'
-
-export default function PageComponent() {
-  const [data, setData] = useState(null)
-  const [loading, setLoading] = useState(true)
-  const [error, setError] = useState(null)
-
-  useEffect(() => {
-    // データ取得ロジック
-  }, [])
-
-  // ページ実装
-}
-```
-
-### カスタムフックの活用
-```typescript
-// hooks/usePageData.ts
-export const usePageData = () => {
-  const [data, setData] = useState(null)
-  const [loading, setLoading] = useState(true)
-
-  useEffect(() => {
-    // データ取得ロジック
-  }, [])
-
-  return { data, loading }
-}
-
-// PageComponent.tsx
-import { usePageData } from './hooks/usePageData'
-
-export default function PageComponent() {
-  const { data, loading } = usePageData()
-
-  // ページ実装
-}
-```
-
-## ページ間の連携
-
-### ページ間のナビゲーション
-```typescript
-import { Link } from 'react-router-dom'
-import { DM } from '@/store/directory/directory'
-
-// 内部リンク
-<Link to={DM.OTHER_PAGE}>他のページへ</Link>
-
-// プログラマティックナビゲーション
-import { useNavigate } from 'react-router-dom'
-
-const navigate = useNavigate()
-const handleNavigation = () => {
-  navigate(DM.OTHER_PAGE)
-}
-```
-
-### 共通レイアウトの活用
-- ヘッダー・フッターの統一
-- サイドバーやナビゲーションの共通化
-- ページ固有の部分のみ実装
