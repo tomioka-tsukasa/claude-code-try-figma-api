@@ -47,6 +47,15 @@ export const content = style([
     width: '100%',
   },
   rvw.gap(20, 15),
+])
+
+export const contentWithPadding = style([
+  {
+    display: 'flex',
+    alignItems: 'center',
+    width: '100%',
+  },
+  rvw.gap(20, 15),
   rvw.padding([20, 20, 20, 20], [15, 15, 15, 15]),
 ])
 

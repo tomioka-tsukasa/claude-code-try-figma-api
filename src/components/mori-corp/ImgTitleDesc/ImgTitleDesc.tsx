@@ -36,7 +36,7 @@ export function ImgTitleDesc({
           className={styles.image}
         />
       </div>
-      <div className={styles.content} data-name='inner'>
+      <div className={pattern === 'white_bg' ? styles.contentWithPadding : styles.content} data-name='inner'>
         <div className={styles.textContent} data-name='content'>
           <h3 className={styles.title}>
             {title}
