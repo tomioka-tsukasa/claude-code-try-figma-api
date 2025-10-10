@@ -29,7 +29,6 @@ export const imageWrapper = style([
     borderRadius: '3px 3px 0 0',
     overflow: 'hidden',
   },
-  rvw.height(180, 120),
 ])
 
 export const image = style({
