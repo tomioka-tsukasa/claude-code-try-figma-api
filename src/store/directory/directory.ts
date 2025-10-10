@@ -36,6 +36,19 @@ export const ROUTES_META = {
       ogImage: '/'
     }
   },
+  MORI_CORP_TEST_05: {
+    meta: {
+      title: '森ビル コンテンツライブラリ - Test 05',
+      description: 'ムービー、グラフィック広告、ラジオ、出版物など森ビルの多様なコンテンツを紹介するページ',
+      canonicalUrl: '/mori-corp-test-05',
+      ogType: 'website',
+      ogTitle: '森ビル コンテンツライブラリ - Test 05',
+      ogSiteName: '森ビル',
+      ogDescription: 'ムービー、グラフィック広告、ラジオ、出版物など森ビルの多様なコンテンツを紹介するページ',
+      twitterCard: 'summary_large_image',
+      ogImage: '/'
+    }
+  },
   FIGMA_COMPONENTS: {
     meta: {
       title: 'Figma Components - 確認ページ',
