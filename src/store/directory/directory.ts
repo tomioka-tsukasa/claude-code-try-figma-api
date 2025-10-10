@@ -8,6 +8,7 @@ export const SLUGS = {
   MORI_CORP_TEST_02: 'mori-corp-test-02',
   MORI_CORP_TEST_03: 'mori-corp-test-03',
   MORI_CORP_TEST_04: 'mori-corp-test-04',
+  MORI_CORP_TEST_05: 'mori-corp-test-05',
 } as const
 
 export const DM = {
@@ -16,6 +17,7 @@ export const DM = {
   MORI_CORP_TEST_02: `${ROOT}${SLUGS.MORI_CORP_TEST_02}`,
   MORI_CORP_TEST_03: `${ROOT}${SLUGS.MORI_CORP_TEST_03}`,
   MORI_CORP_TEST_04: `${ROOT}${SLUGS.MORI_CORP_TEST_04}`,
+  MORI_CORP_TEST_05: `${ROOT}${SLUGS.MORI_CORP_TEST_05}`,
 } as const
 
 export const ROUTES_META = {
