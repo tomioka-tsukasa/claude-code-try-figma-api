@@ -72,6 +72,24 @@ export default function Component({ title, description }: ComponentProps) {
 - `/src/styles/responsive.config.ts` のブレークポイント使用
 - 既存コンポーネントのスタイルパターンに準拠
 
+#### 数値のレスポンシブ化
+
+- 基本的に `px` の固定値ではなく `rvw()` を使用
+- 詳細なガイドは @docs/responsive-style-guide.md を参照
+```typescript
+import { style } from '@vanilla-extract/css'
+import { rvw } from '@/styles/responsive.css'
+
+export const paragraph = style([
+  {
+    fontWeight: 'bold',
+  },
+  rvw.fontSize(16, 14),
+  rvw.width(320, 240),
+  rvw.padding([9, 24, 10], [6, 16, 7]),
+])
+```
+
 #### 禁止パターン
 ```typescript
 // HTMLタグセレクターは使用禁止
