@@ -119,6 +119,31 @@ export const text = style([
 ])
 ```
 
+### SVGアイコン・画像実装ルール
+
+**重要**: SVGコードも `.svg画像` としてダウンロードし、以下の手順で実装すること：
+
+1. **MCPで取得したSVGファイルを使用**
+   - `mcp__figma-dev-mode-mcp-server__get_code`で取得されたSVGファイルパスを確認
+   - 例: `const iconSvg = "/path/to/icon.svg"`
+
+2. **ImgOptコンポーネントで表示**
+   ```typescript
+   <ImgOpt
+     src={iconSvg}
+     alt="アイコン"
+     className={styles.icon}
+   />
+   ```
+
+3. **手動SVGコード禁止**
+   - `<svg>`タグを直接記述しない
+   - Figmaデザインとの完全一致を最優先とする
+
+4. **スタイリング調整**
+   - `ImgOpt`でサイズ・色調整が困難な場合のみ、CSSフィルターを使用
+   - それでも困難な場合は実装方針を再検討
+
 ### Figmaライブラリデータ活用
 
 #### デザイントークン参照パターン
