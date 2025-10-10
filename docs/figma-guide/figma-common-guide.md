@@ -93,22 +93,30 @@ export const paragraph = style([
 #### 禁止パターン
 ```typescript
 // HTMLタグセレクターは使用禁止
-export const container = style({
-  '& p': { color: 'red' } // NG
-})
+export const container = style([
+  {
+    selectors: {
+      '& p': { color: 'red' } // NG
+    },
+  },
+])
 ```
 
 #### 推奨パターン
 ```typescript
 // 個別クラスで管理
-export const container = style({
-  display: 'flex',
-  flexDirection: 'column'
-})
+export const container = style([
+  {
+    display: 'flex',
+    flexDirection: 'column'
+  },
+])
 
-export const text = style({
-  color: 'red',
-})
+export const text = style([
+  {
+    color: 'red',
+  },
+])
 ```
 
 ### Figmaライブラリデータ活用

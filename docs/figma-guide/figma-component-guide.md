@@ -96,11 +96,13 @@ export default function Button({
 ### 3. スタイルの分離
 ```typescript
 // Button.css.ts
-export const buttonBase = style({
-  border: 'none',
-  cursor: 'pointer',
-  transition: 'all 0.2s ease',
-});
+export const buttonBase = style([
+  {
+    border: 'none',
+    cursor: 'pointer',
+    transition: 'all 0.2s ease',
+  },
+]);
 
 export const variants = styleVariants({
   primary: {
