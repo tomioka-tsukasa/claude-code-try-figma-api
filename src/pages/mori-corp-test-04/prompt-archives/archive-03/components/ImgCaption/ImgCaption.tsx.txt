@@ -1,0 +1,46 @@
+import React from 'react'
+import ImgOpt from '@/components/utils/ImgOpt/ImgOpt'
+import * as styles from './ImgCaption.css'
+
+interface ImgCaptionProps {
+  src: string
+  caption: string
+  alt?: string
+  width?: string
+  height?: string
+  'data-name'?: string
+  'data-node-id'?: string
+}
+
+const ImgCaption: React.FC<ImgCaptionProps> = ({
+  src,
+  caption,
+  alt = '',
+  width: _width,
+  height: _height,
+  'data-name': dataName,
+  'data-node-id': dataNodeId,
+}) => {
+  return (
+    <div
+      className={styles.container}
+      data-name={dataName}
+      data-node-id={dataNodeId}
+    >
+      <div className={styles.imageContainer}>
+        <ImgOpt
+          src={src}
+          alt={alt}
+          className={styles.image}
+        />
+      </div>
+      <div className={styles.captionContainer}>
+        <p className={styles.caption}>
+          {caption}
+        </p>
+      </div>
+    </div>
+  )
+}
+
+export default ImgCaption

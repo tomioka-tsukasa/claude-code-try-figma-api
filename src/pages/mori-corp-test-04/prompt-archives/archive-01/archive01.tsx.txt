@@ -1,0 +1,198 @@
+import React from 'react'
+import * as styles from './archive01.css'
+import HeadlineMidashi from '@/components/mori-corp/HeadlineMidashi/HeadlineMidashi'
+import ImgCaption from '@/components/mori-corp/ImgCaption/ImgCaption'
+import ImgTitleDesc from '@/components/mori-corp/ImgTitleDesc/ImgTitleDesc'
+import Button from '@/components/mori-corp/Button/Button'
+
+export default function MoriCorpTest03() {
+  return (
+    <div className={styles.container} data-name='test-03' data-node-id='631:7519'>
+      <div className={styles.overlay} data-name='□' data-node-id='631:7520'>
+        <div className={styles.overlayBorder} />
+      </div>
+      <div className={styles.contentContainer} data-name='Contents + Index UI' data-node-id='631:7523'>
+        <div className={styles.contents} data-name='Contents' data-node-id='631:7524'>
+
+          {/* Movie Section */}
+          <section className={styles.section} data-name='movie' data-node-id='631:7539'>
+            <div className={styles.sectionBody} data-name='Body' data-node-id='631:7542'>
+              <div className={styles.sidebarColumn} data-node-id='631:7543'>
+                <div className={styles.headlineSticky}>
+                  <HeadlineMidashi color='black' data-name='Headline_midashi' data-node-id='631:7544'>
+                    ムービー
+                  </HeadlineMidashi>
+                </div>
+              </div>
+              <div className={styles.contentColumn} data-name='Text' data-node-id='631:7545'>
+                <div className={styles.imagesGrid} data-name='Images' data-node-id='631:7546'>
+                  <ImgCaption
+                    src='/d5eeb7e244431d01789dac8816b8c1bd91caef9b.png'
+                    caption='森ビル ブランドムービー｜DESIGNING TOKYO（2023）'
+                    data-name='img_caption'
+                    data-node-id='631:7547'
+                  />
+                  <ImgCaption
+                    src='/62376c705d19fc8c69b3b5cb640ca9a93fb2fe94.png'
+                    caption='麻布台ヒルズコンセプトムービー｜都市に生きる（2019）'
+                    data-name='img_caption'
+                    data-node-id='631:7548'
+                  />
+                </div>
+                <div className={styles.imagesGrid} data-name='Images' data-node-id='631:7549'>
+                  <ImgCaption
+                    src='/05d412cbc5e2790cd9caf00a4dc24e4b16672eee.png'
+                    caption='「DESIGNING TOKYO」Full Ver.（2019年）'
+                    data-name='img_caption'
+                    data-node-id='631:7550'
+                  />
+                  <ImgCaption
+                    src='/ecd13fda0d81010e751d69484c9e7fdc3ca42723.png'
+                    caption='麻布台ヒルズコンセプトムービー｜都市に生きる（2019）'
+                    data-name='img_caption'
+                    data-node-id='631:7551'
+                  />
+                </div>
+                <div className={styles.buttonRow} data-name='button_col' data-node-id='631:7552'>
+                  <Button
+                    label='ムービー 一覧'
+                    className={styles.button}
+                    data-name='button'
+                    data-node-id='631:7553'
+                  />
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* Graphic Section */}
+          <section className={styles.section} data-name='graphic' data-node-id='631:7554'>
+            <div className={styles.sectionBody} data-name='Body' data-node-id='631:7557'>
+              <div className={styles.sidebarColumn} data-node-id='631:7558'>
+                <div className={styles.headlineSticky}>
+                  <HeadlineMidashi color='gray' data-name='Headline_midashi' data-node-id='631:7559'>
+                    グラフィック広告
+                  </HeadlineMidashi>
+                </div>
+              </div>
+              <div className={styles.contentColumn} data-name='Text' data-node-id='631:7560'>
+                <div className={styles.graphicImagesGrid} data-name='Images' data-node-id='631:7561'>
+                  <ImgCaption
+                    src='/5ee5ba04be89810e653c07f06d9003bbb54ed97c.png'
+                    caption='2023年　麻布台ヒルズ開業広告「GREEN, LIFE, TOKYO. AZABUDAI HILLS」'
+                    width='230px'
+                    height='218px'
+                    data-name='img_caption'
+                    data-node-id='631:7562'
+                  />
+                  <ImgCaption
+                    src='/361f5018219d398b995795cd6bdfdddee047104f.png'
+                    caption='2023年　虎ノ門ヒルズ ステーションタワー開業広告「WELCOME TO TORANOMON HILLS」'
+                    width='231px'
+                    height='378px'
+                    data-name='img_caption'
+                    data-node-id='631:7563'
+                  />
+                  <ImgCaption
+                    src='/455727091b7e0fac8dfe78aacacb9cd041a0c33a.png'
+                    caption='2021年「Hello, Mirai Tokyo！ 2021→」'
+                    width='230px'
+                    height='389px'
+                    data-name='img_caption'
+                    data-node-id='631:7564'
+                  />
+                </div>
+                <div className={styles.buttonRow} data-name='button_col' data-node-id='631:7565'>
+                  <Button
+                    label='グラフィック広告 一覧'
+                    className={styles.button}
+                    data-name='button'
+                    data-node-id='631:7566'
+                  />
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* Radio Section */}
+          <section className={styles.section} data-name='radio' data-node-id='631:7567'>
+            <div className={styles.sectionBody} data-name='Body' data-node-id='631:7570'>
+              <div className={styles.sidebarColumn} data-node-id='631:7571'>
+                <div className={styles.headlineSticky}>
+                  <HeadlineMidashi color='gray' data-name='Headline_midashi' data-node-id='631:7572'>
+                    ラジオ
+                  </HeadlineMidashi>
+                </div>
+              </div>
+              <div className={styles.contentColumn} data-name='Text' data-node-id='631:7573'>
+                <ImgTitleDesc
+                  title='森ビル提供のラジオ番組　J-WAVE「MORI BUILDING GO NEXT TOKYO」　（月～木曜 13:45～13:55）'
+                  desc='東京のホットなイベントや情報をお届けしています。'
+                  imageUrl='/363c097f05b1eeb50ba6ed331c82ef1aacf48b0e.png'
+                  data-name='img_title_desc'
+                  data-node-id='633:1318'
+                />
+                <div className={styles.radioText} data-node-id='631:7575'>
+                  <p className={styles.radioTextP}>
+                    J-WAVEのラジオ番組「MORI BUILDING GO NEXT TOKYO」などで放送中の<br />
+                    森ビルのラジオCMは、さまざまなクリエイターとコラボレーションしています。
+                  </p>
+                </div>
+                <div className={styles.buttonRow} data-name='button_col' data-node-id='631:7576'>
+                  <Button
+                    label='ラジオCM'
+                    className={styles.button}
+                    data-name='button'
+                    data-node-id='631:7577'
+                  />
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* Book Section */}
+          <section className={styles.section} data-name='book' data-node-id='631:7578'>
+            <div className={styles.sectionBody} data-name='Body' data-node-id='631:7581'>
+              <div className={styles.sidebarColumn} data-node-id='631:7582'>
+                <div className={styles.headlineSticky}>
+                  <HeadlineMidashi color='gray' data-name='Headline_midashi' data-node-id='631:7583'>
+                    出版物
+                  </HeadlineMidashi>
+                </div>
+              </div>
+              <div className={styles.contentColumn} data-name='Text' data-node-id='631:7584'>
+                <div className={styles.booksGrid} data-name='Images' data-node-id='631:7585'>
+                  <ImgTitleDesc
+                    title='「ヒルズ　挑戦する都市」'
+                    desc='2009年10月発行<br />朝日新聞出版'
+                    pattern='white_bg'
+                    imageUrl='/c032e6248e86eb0e3ee59f6ae2bd6b49aaef9b8b.png'
+                    data-name='img_title_desc'
+                    data-node-id='631:7586'
+                  />
+                  <ImgTitleDesc
+                    title='「森ビル［まんがで学ぶ 成功企業の仕事術］」'
+                    desc='2013年11月発行<br />BookLive'
+                    pattern='white_bg'
+                    imageUrl='/00da018fd3dc3b8b29f22d7117a7505fb63b5f9c.png'
+                    data-name='img_title_desc'
+                    data-node-id='631:7587'
+                  />
+                  <ImgTitleDesc
+                    title='新建築 別冊「森ビル 建築から都市へ」'
+                    desc='2012年7月発行<br />新建築社'
+                    pattern='white_bg'
+                    imageUrl='/ad891fbf70bc8d9d6b4335a2bf1c28db388e1cac.png'
+                    data-name='img_title_desc'
+                    data-node-id='631:7588'
+                  />
+                </div>
+              </div>
+            </div>
+          </section>
+
+        </div>
+      </div>
+    </div>
+  )
+}

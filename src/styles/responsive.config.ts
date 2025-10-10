@@ -1,21 +1,19 @@
-
 /**
  * レスポンシブ定義
  */
 
 // デザインサイズとメディアクエリの変数
-export const PcDesignWidth = 1125
-export const PcOverDesignWidth = 1125
-export const TabletDesignWidth = 1125
+export const PcDesignWidth = 1512
+export const PcDesignHeight = 840
+export const TabletDesignWidth = 1024
 export const SpDesignWidth = 375
-export const DesignRatio = 375 / 1125
 
-export const PcMqWidthMin = 768
-export const PcMqWidthMax = 1800
-export const PcOverMqWidthMin = 1800
-export const TabletMqWidthMin = 768
+export const PcMqWidthMin = 1024
+export const PcMqWidthMax = 1512
+export const PcOverMqWidthMin = 1512
+export const TabletMqWidthMin = 501
 export const SpMqWidth = 500
 
 // ピクセル制限設定
-export const usePixelLimit = true
-export const pixelLimitWidth = 501
+export const usePixelLimit = false
+export const pixelLimitWidth = 1512

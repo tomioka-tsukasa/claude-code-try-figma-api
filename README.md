@@ -2,6 +2,11 @@
 
 React + TypeScript + Vite + Vanilla Extractで構築された検証用の環境です。
 
+## Claudeセットアップ
+
+1. `claude /init` 実行
+2. 生成された `CLAUDE.md` に `/docs/claude-custom.md` を追加で読ませるような記述を追加
+
 ## 開発環境セットアップ
 
 ### 必要な環境

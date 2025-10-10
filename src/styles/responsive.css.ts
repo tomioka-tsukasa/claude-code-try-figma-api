@@ -1,11 +1,11 @@
 import { StyleRule } from '@vanilla-extract/css'
 import { Properties } from 'csstype'
-import { PcDesignWidth, PcOverDesignWidth, TabletDesignWidth, SpDesignWidth, DesignRatio, PcMqWidthMin, PcMqWidthMax, PcOverMqWidthMin, TabletMqWidthMin, SpMqWidth, usePixelLimit, pixelLimitWidth } from './responsive.config'
+import { PcDesignWidth, SpDesignWidth, PcMqWidthMin, PcOverMqWidthMin, TabletMqWidthMin, SpMqWidth, usePixelLimit, pixelLimitWidth, TabletDesignWidth } from './responsive.config'
 
 // メディアクエリ定義
 export const mediaQueries = {
   sp: `screen and (max-width: ${SpMqWidth}px)`,
-  tablet: `screen and (min-width: ${TabletMqWidthMin}px) and (max-width: ${PcMqWidthMax - 1}px)`,
+  tablet: `screen and (min-width: ${TabletMqWidthMin}px) and (max-width: ${PcMqWidthMin - 1}px)`,
   pc: `screen and (min-width: ${PcMqWidthMin}px) and (max-width: ${PcOverMqWidthMin - 1}px)`,
   pcOver: `screen and (min-width: ${PcOverMqWidthMin}px)`,
   hover: '(hover: hover)',
@@ -23,39 +23,35 @@ const stripUnit = (value: string | number): number => {
   if (typeof value === 'string' && value.endsWith('px')) {
     return parseFloat(value)
   }
-  return parseFloat(String(value))
-}
 
-// デザイン比率を適用する関数
-const applyDesignRatio = (size: string | number): number => {
-  return stripUnit(size) * DesignRatio
+  return parseFloat(String(value))
 }
 
 const vwCalc = (size: string | number, viewport = SpDesignWidth): string => {
   const rate = 100 / viewport
-  // デザイン比率を適用
-  const adjustedSize = applyDesignRatio(size)
+  const adjustedSize = stripUnit(size)
+
   return `${rate * adjustedSize}vw`
 }
 
 const vwTabletCalc = (size: string | number, viewport = TabletDesignWidth): string => {
   const rate = 100 / viewport
-  // デザイン比率を適用
-  const adjustedSize = applyDesignRatio(size)
+  const adjustedSize = stripUnit(size)
+
   return `${rate * adjustedSize}vw`
 }
 
 const vwPcCalc = (size: string | number, viewport = PcDesignWidth): string => {
   const rate = 100 / viewport
-  // デザイン比率を適用
-  const adjustedSize = applyDesignRatio(size)
+  const adjustedSize = stripUnit(size)
+
   return `${rate * adjustedSize}vw`
 }
 
 // px値を返す関数
 const toPx = (size: string | number): string => {
-  // デザイン比率を適用
-  const adjustedSize = applyDesignRatio(size)
+  const adjustedSize = stripUnit(size)
+
   return `${adjustedSize}px`
 }
 
@@ -65,13 +61,15 @@ const getUnitType = (value: string | number): UnitType => {
     if (value === 'auto' || value === 'inherit' || value === 'initial') return 'auto'
     if (/^\d+(\.\d+)?(px|rem|em|vh|%|pt|pc|in|cm|mm|ex|ch|vmin|vmax)$/.test(value)) return 'auto'
   }
+
   return 'vw' // デフォルトはvw変換（数値も文字列の数値もvwに変換）
 }
 
 // 値を文字列に変換
 const processValue = (value: string | number, calcFunc: (val: string | number) => string): string => {
   const unitType = getUnitType(value)
-  if (unitType === 'auto') return String(value)
+  if (typeof value === 'string' || unitType === 'auto') return String(value)
+
   return calcFunc(value) // 変換関数を呼び出す
 }
 
@@ -98,14 +96,6 @@ const createResponsiveStyle = (
   const spStr = processValues(spArray, vwCalc)
   const tabletStr = processValues(tabletArray, vwTabletCalc)
 
-  // PC-Over用はデフォルトでpx値を使用
-  const pcOverStr = defaultArray.map(value => {
-    const ratio = PcOverDesignWidth / PcDesignWidth
-    // デザイン比率を適用
-    const adjustedSize = applyDesignRatio(value)
-    return `${adjustedSize * ratio}px`
-  }).join(' ')
-
   const result: StyleRule = {
     [property]: defaultStr,
     '@media': {
@@ -115,24 +105,21 @@ const createResponsiveStyle = (
       [mediaQueries.tablet]: {
         [property]: tabletStr,
       },
-      [mediaQueries.pcOver]: {
-        [property]: pcOverStr,
-      }
     }
   }
 
-  // useLimit=trueの場合、pixelLimitWidth以上のサイズでpx値を使用
+  // useLimit=trueの場合、pixelLimitWidth以上のサイズでpx値を使用（デフォルト値を基準にする）
   if (useLimit) {
-    // pixelLimitWidth以上の場合、px値を使用（SPの値を基準にする）
-    // SPデザイン幅からメディアクエリ幅への変換比率を計算
-    const spToPcRatio = SpMqWidth / SpDesignWidth
-    const pxStr = spArray.map(value => {
-      // 数値を変換して比率を適用
+    const pxStr = defaultArray.map(value => {
       const numValue = typeof value === 'number' ? value : parseFloat(String(value))
-      return toPx(numValue * spToPcRatio)
+
+      return toPx(numValue)
     }).join(' ')
 
     // pixelBreakpointメディアクエリでpx値を設定
+    if (!result['@media']) {
+      result['@media'] = {}
+    }
     result['@media'][mediaQueries.pixelBreakpoint] = {
       [property]: pxStr
     }
@@ -172,10 +159,8 @@ const createMqStyle = (
     }
   } else if (defaultValue !== undefined) {
     // PC-Overの値が指定されていない場合、defaultValueを元にpx値を計算
-    const ratio = PcOverDesignWidth / PcDesignWidth
-    // デザイン比率を適用
-    const adjustedSize = applyDesignRatio(defaultValue)
-    const pcOverCalcValue = `${adjustedSize * ratio}px`
+    const adjustedSize = stripUnit(defaultValue)
+    const pcOverCalcValue = `${adjustedSize}px`
     result['@media'][mediaQueries.pcOver] = {
       [property]: pcOverCalcValue
     }
