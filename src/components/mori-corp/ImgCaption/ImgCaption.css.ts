@@ -21,7 +21,6 @@ export const imageWrapper = style([
     overflow: 'hidden',
     flex: '1 1 0%',
   },
-  rvw.minHeight(200, 150),
 ])
 
 export const image = style({
