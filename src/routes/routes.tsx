@@ -9,6 +9,7 @@ import MoriCorpTest04 from '@/pages/mori-corp-test-04/MoriCorpTest04'
 import MoriCorpTest05 from '@/pages/mori-corp-test-05/MoriCorpTest05'
 import MoriCorp from '@/pages/figma-components/mori-corp/MoriCorp'
 import FujigotembaDistillery from '@/pages/figma-components/fujigotemba-distillery/FujigotembaDistillery'
+import FigmaComponentsTest from '@/pages/figma-components/figma-template-01/FigmaTemplate01'
 
 export const AppRoutes = () => {
   return <>
@@ -23,6 +24,7 @@ export const AppRoutes = () => {
           <Route path={DM.MORI_CORP_TEST_05} element={<MoriCorpTest05 />} />
           <Route path={DM.MORI_CORP_COMP} element={<MoriCorp />} />
           <Route path={DM.FUJIGOTEMBA_DISTILLERY_COMP} element={<FujigotembaDistillery />} />
+          <Route path={DM.FIGMA_TEMPLATE_01} element={<FigmaComponentsTest />} />
         </Route>
       </Routes>
     </BrowserRouter>

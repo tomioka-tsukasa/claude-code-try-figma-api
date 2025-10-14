@@ -12,6 +12,7 @@ export const SLUGS = {
   FIGMA_COMPONENTS: 'figma-components',
   MORI_CORP_COMP: 'mori-corp',
   FUJIGOTEMBA_DISTILLERY_COMP: 'fujigotemba-distillery',
+  FIGMA_TEMPLATE_01: 'figma-template-01',
 } as const
 
 export const DM = {
@@ -23,6 +24,7 @@ export const DM = {
   MORI_CORP_TEST_05: `${ROOT}${SLUGS.MORI_CORP_TEST_05}`,
   MORI_CORP_COMP: `${ROOT}${SLUGS.FIGMA_COMPONENTS}/${SLUGS.MORI_CORP_COMP}`,
   FUJIGOTEMBA_DISTILLERY_COMP: `${ROOT}${SLUGS.FIGMA_COMPONENTS}/${SLUGS.FUJIGOTEMBA_DISTILLERY_COMP}`,
+  FIGMA_TEMPLATE_01: `${ROOT}${SLUGS.FIGMA_COMPONENTS}/${SLUGS.FIGMA_TEMPLATE_01}`,
 } as const
 
 export const ROUTES_META = {
@@ -74,6 +76,19 @@ export const ROUTES_META = {
       ogTitle: 'Fujigotemba Distillery Components - 確認ページ',
       ogSiteName: 'Fujigotemba Distillery Components',
       ogDescription: '富士御殿場蒸溜所関連のFigmaコンポーネント確認ページ',
+      twitterCard: 'summary_large_image',
+      ogImage: '/'
+    }
+  },
+  FIGMA_COMPONENTS_TEST: {
+    meta: {
+      title: 'Figma Components Test - 確認ページ',
+      description: 'Figmaから実装したコンポーネント一覧の確認ページ',
+      canonicalUrl: '/figma-components-test',
+      ogType: 'website',
+      ogTitle: 'Figma Components Test - 確認ページ',
+      ogSiteName: 'Figma Components Test',
+      ogDescription: 'Figmaから実装したコンポーネント一覧の確認ページ',
       twitterCard: 'summary_large_image',
       ogImage: '/'
     }
