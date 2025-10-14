@@ -10,6 +10,9 @@ export const SLUGS = {
   MORI_CORP_TEST_04: 'mori-corp-test-04',
   MORI_CORP_TEST_05: 'mori-corp-test-05',
   FIGMA_COMPONENTS: 'figma-components',
+  MORI_CORP_COMP: 'mori-corp',
+  FUJIGOTEMBA_DISTILLERY_COMP: 'fujigotemba-distillery',
+  FIGMA_TEMPLATE_01: 'figma-template-01',
 } as const
 
 export const DM = {
@@ -19,7 +22,9 @@ export const DM = {
   MORI_CORP_TEST_03: `${ROOT}${SLUGS.MORI_CORP_TEST_03}`,
   MORI_CORP_TEST_04: `${ROOT}${SLUGS.MORI_CORP_TEST_04}`,
   MORI_CORP_TEST_05: `${ROOT}${SLUGS.MORI_CORP_TEST_05}`,
-  FIGMA_COMPONENTS: `${ROOT}${SLUGS.FIGMA_COMPONENTS}`,
+  MORI_CORP_COMP: `${ROOT}${SLUGS.FIGMA_COMPONENTS}/${SLUGS.MORI_CORP_COMP}`,
+  FUJIGOTEMBA_DISTILLERY_COMP: `${ROOT}${SLUGS.FIGMA_COMPONENTS}/${SLUGS.FUJIGOTEMBA_DISTILLERY_COMP}`,
+  FIGMA_TEMPLATE_01: `${ROOT}${SLUGS.FIGMA_COMPONENTS}/${SLUGS.FIGMA_TEMPLATE_01}`,
 } as const
 
 export const ROUTES_META = {
@@ -49,15 +54,41 @@ export const ROUTES_META = {
       ogImage: '/'
     }
   },
-  FIGMA_COMPONENTS: {
+  FIGMA_COMPONENTS_MORI_CORP: {
     meta: {
-      title: 'Figma Components - 確認ページ',
-      description: 'Figmaから実装したコンポーネントの確認ページ',
-      canonicalUrl: '/figma-components',
+      title: 'MoriCorp Components - 確認ページ',
+      description: 'MoriCorp関連のFigmaコンポーネント確認ページ',
+      canonicalUrl: '/figma-components/mori-corp',
       ogType: 'website',
-      ogTitle: 'Figma Components - 確認ページ',
-      ogSiteName: 'Figma Components',
-      ogDescription: 'Figmaから実装したコンポーネントの確認ページ',
+      ogTitle: 'MoriCorp Components - 確認ページ',
+      ogSiteName: 'MoriCorp Components',
+      ogDescription: 'MoriCorp関連のFigmaコンポーネント確認ページ',
+      twitterCard: 'summary_large_image',
+      ogImage: '/'
+    }
+  },
+  FIGMA_COMPONENTS_FUJIGOTEMBA_DISTILLERY: {
+    meta: {
+      title: 'Fujigotemba Distillery Components - 確認ページ',
+      description: '富士御殿場蒸溜所関連のFigmaコンポーネント確認ページ',
+      canonicalUrl: '/figma-components/fujigotemba-distillery',
+      ogType: 'website',
+      ogTitle: 'Fujigotemba Distillery Components - 確認ページ',
+      ogSiteName: 'Fujigotemba Distillery Components',
+      ogDescription: '富士御殿場蒸溜所関連のFigmaコンポーネント確認ページ',
+      twitterCard: 'summary_large_image',
+      ogImage: '/'
+    }
+  },
+  FIGMA_COMPONENTS_TEST: {
+    meta: {
+      title: 'Figma Components Test - 確認ページ',
+      description: 'Figmaから実装したコンポーネント一覧の確認ページ',
+      canonicalUrl: '/figma-components-test',
+      ogType: 'website',
+      ogTitle: 'Figma Components Test - 確認ページ',
+      ogSiteName: 'Figma Components Test',
+      ogDescription: 'Figmaから実装したコンポーネント一覧の確認ページ',
       twitterCard: 'summary_large_image',
       ogImage: '/'
     }
