@@ -1,7 +1,7 @@
 import { Button, ImgTitleDesc, ImgCaption } from '@/components/mori-corp'
-import * as styles from './FigmaComponents.css'
+import * as styles from './MoriCorp.css'
 
-function FigmaComponents() {
+function MoriCorp() {
   return (
     <div className={styles.container}>
       <h1 className={styles.title}>Figma Components 確認ページ</h1>
@@ -66,4 +66,4 @@ function FigmaComponents() {
   )
 }
 
-export default FigmaComponents
+export default MoriCorp

@@ -7,7 +7,8 @@ import { BASE_ROOT, DM } from '@/store/directory/directory'
 // import MoriCorpTest03 from '@/pages/mori-corp-test-03/MoriCorpTest03'
 import MoriCorpTest04 from '@/pages/mori-corp-test-04/MoriCorpTest04'
 import MoriCorpTest05 from '@/pages/mori-corp-test-05/MoriCorpTest05'
-import FigmaComponents from '@/pages/figma-components/FigmaComponents'
+import MoriCorp from '@/pages/figma-components/mori-corp/MoriCorp'
+import FujigotembaDistillery from '@/pages/figma-components/fujigotemba-distillery/FujigotembaDistillery'
 
 export const AppRoutes = () => {
   return <>
@@ -20,7 +21,8 @@ export const AppRoutes = () => {
           {/* <Route path={DM.MORI_CORP_TEST_03} element={<MoriCorpTest03 />} /> */}
           <Route path={DM.MORI_CORP_TEST_04} element={<MoriCorpTest04 />} />
           <Route path={DM.MORI_CORP_TEST_05} element={<MoriCorpTest05 />} />
-          <Route path={DM.FIGMA_COMPONENTS} element={<FigmaComponents />} />
+          <Route path={DM.MORI_CORP_COMP} element={<MoriCorp />} />
+          <Route path={DM.FUJIGOTEMBA_DISTILLERY_COMP} element={<FujigotembaDistillery />} />
         </Route>
       </Routes>
     </BrowserRouter>
