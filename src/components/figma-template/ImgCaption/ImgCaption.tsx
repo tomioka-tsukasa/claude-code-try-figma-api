@@ -2,7 +2,7 @@ import React from 'react'
 import { ImgOpt } from '@/components/utils/ImgOpt/ImgOpt'
 import * as styles from './ImgCaption.css'
 
-const img = '/src/assets/986cc6493ff9f09f5f9473641daea2a26284dcdc.png'
+const img = '/assets/images/986cc6493ff9f09f5f9473641daea2a26284dcdc.png'
 
 interface ImgCaptionProps {
   className?: string
