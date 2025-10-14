@@ -2,7 +2,7 @@ import React from 'react'
 import { ImgOpt } from '@/components/utils/ImgOpt/ImgOpt'
 import * as styles from './ImgTitleDesc.css'
 
-const defaultImage = '/figma-assets/c032e6248e86eb0e3ee59f6ae2bd6b49aaef9b8b.png'
+const defaultImage = '/assets/images/mori-corp-test-03/c032e6248e86eb0e3ee59f6ae2bd6b49aaef9b8b.png'
 
 interface ImgTitleDescProps {
   src?: string

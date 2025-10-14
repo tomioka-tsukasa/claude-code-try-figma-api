@@ -3,7 +3,7 @@ import { ImgOpt } from '@/components/utils/ImgOpt/ImgOpt'
 import { Button } from '../Button/Button'
 import * as styles from './ProductCard.css'
 
-const imgImage = '/src/assets/a249f8cacf66d929a65da0b46a79c2e0111f54d3.png'
+const imgImage = '/assets/images/a249f8cacf66d929a65da0b46a79c2e0111f54d3.png'
 
 interface ProductCardProps {
   className?: string
